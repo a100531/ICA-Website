@@ -1,10 +1,22 @@
 #logoimage{
-  width: 330px;
+  width: 20em;
   height: 100%;
 
 }
-.nav{
+nav{
   background-color: #f5dcf7;
+}
+footer{
+  padding-top: 8em;
+  margin-top: 15em;
+  background-color: #b5b1b5;
+}
+
+.listA{
+  padding-left: 5em;
+}
+.aColor{
+  color: white;
 }
 
 @font-face {
@@ -23,6 +35,10 @@ a{
   font-style:normal;
 
 }
+#carouselSpacing{
+  padding-top: 5em;
+  width: 100%;
+}
 .Spacing{
   padding-top:4em;
 }
@@ -31,8 +47,17 @@ a{
   font-weight:normal;
   font-style:normal;
   line-height: 1;
+  padding-left: 2em;
 }
 #canceledlecImg{
   height: 100%;
-  width: 300px;
+  width: 20em;
+}
+#CansLocation{
+  margin-top: 3em;
+}
+
+#AboutUsImage{
+  height: 100%;
+  width: 28em;
 }
