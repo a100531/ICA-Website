@@ -3,7 +3,36 @@
   height: 100%;
 
 }
-
 .nav{
   background-color: #f5dcf7;
+}
+
+@font-face {
+  font-family:GothamBook;
+  src:url("css/Font/GothamBook.ttf");
+}
+h1{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #9f71a0;
+}
+a{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+
+}
+.Spacing{
+  padding-top:4em;
+}
+.paragraph{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  line-height: 1;
+}
+#canceledlecImg{
+  height: 100%;
+  width: 300px;
 }
