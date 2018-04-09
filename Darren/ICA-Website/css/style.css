@@ -61,3 +61,12 @@ a{
   height: 100%;
   width: 28em;
 }
+#LoginImage{
+  height: 100%;
+  width: 28em;
+  padding-top: 10em;
+  padding-left: 3em;
+}
+#LoginSpacing{
+  padding-left:5em;
+}
