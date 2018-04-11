@@ -1,3 +1,12 @@
+@font-face {
+  font-family:GothamBold;
+  src:url("Font/GothamBold.ttf");
+}
+@font-face{
+  font-family:GothamBook;
+  src:url("Font/GothamBook.ttf");
+}
+
 #logoimage{
   width: 20em;
   height: 100%;
@@ -5,6 +14,13 @@
 }
 nav{
   background-color: #f5dcf7;
+}
+.navbar-light .navbar-nav .nav-link {
+  font-weight: bold;
+  color: white ;
+}
+.naviLink:hover{
+  color: white;
 }
 footer{
   padding-top: 8em;
@@ -19,21 +35,19 @@ footer{
   color: white;
 }
 
-@font-face {
-  font-family:GothamBook;
-  src:url("css/Font/GothamBook.ttf");
-}
 h1{
-  font-family: GothamBook,Arial,sans-serif;
+  font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
   font-style:normal;
   color: #9f71a0;
 }
 a{
-  font-family: GothamBook,Arial,sans-serif;
+  font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
   font-style:normal;
-
+}
+.notices{
+  font-family: GothamBook,Arial,sans-serif;
 }
 #carouselSpacing{
   padding-top: 5em;
@@ -43,7 +57,7 @@ a{
   padding-top:4em;
 }
 .paragraph{
-  font-family: GothamBook,Arial,sans-serif;
+  font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
   font-style:normal;
   line-height: 1;
