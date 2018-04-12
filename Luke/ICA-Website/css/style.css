@@ -15,7 +15,6 @@
 nav{
   background-color: #f5dcf7;
 }
-
 .navbar-light .navbar-nav .nav-link {
   font-weight: bold;
   color: white ;
@@ -24,10 +23,15 @@ nav{
   color: white;
 }
 .NavSpace{
-  margin-top: 5em;
+  margin-top: 10em;
 }
-.NavSpaceContact{
-  margin-top: 15em;
+.NavUnderTitleColour{
+  padding-top: 4em;
+  padding-bottom: 2em;
+  background-color: #f5dcf7;
+}
+.FormSpacing{
+  margin-top : 1em;
 }
 footer{
   padding-top: 8em;
@@ -57,7 +61,7 @@ a{
   font-family: GothamBook,Arial,sans-serif;
 }
 #carouselSpacing{
-  padding-top: 5em;
+
   width: 100%;
 }
 .Spacing{
@@ -94,10 +98,18 @@ a{
 #LoginEmailSpacing{
   margin-right: -4em;
   margin-left:  -4em;
-  padding-top: 3em;
 }
 #LoginPassSpacing{
   margin-right: -4em;
   margin-left:  -4em;
-  padding-top: 1em;
+}
+
+.portfolioImg{
+  width : 15em;
+  height: 100%;
+}
+#portfolioLogoImg{
+  height: 100%;
+  width: 24em;
+  margin-top: -9em;
 }
