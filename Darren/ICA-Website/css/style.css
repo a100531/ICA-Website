@@ -1,3 +1,7 @@
+
+/*----------------------------------------Fonts--------------------------------------*/
+
+
 @font-face {
   font-family:GothamBold;
   src:url("Font/GothamBold.ttf");
@@ -6,38 +10,15 @@
   font-family:GothamBook;
   src:url("Font/GothamBook.ttf");
 }
+/*------------------------------------------------------------------------------------*/
 
-#logoimage{
-  width: 20em;
-  height: 100%;
+/*---------------------------------------Tags-----------------------------------------*/
 
-}
-nav{
-  background-color: #f5dcf7;
-}
-.navbar-light .navbar-nav .nav-link {
-  font-weight: bold;
-  color: white ;
-}
-.naviLink:hover{
-  color: white;
-}
-.NavSpace{
-  margin-top: 5em;
-}
 footer{
   padding-top: 8em;
   margin-top: 15em;
   background-color: #b5b1b5;
 }
-
-.listA{
-  padding-left: 5em;
-}
-.aColor{
-  color: white;
-}
-
 h1{
   font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
@@ -49,16 +30,37 @@ a{
   font-weight:normal;
   font-style:normal;
 }
-.notices{
-  font-family: GothamBook,Arial,sans-serif;
+
+/*------------------------------------------------------------------------------------*/
+
+/* -----------------------------------------navigation--------------------------------*/
+nav{
+  background-color: #f5dcf7;
 }
-#carouselSpacing{
-  padding-top: 5em;
-  width: 100%;
+.navbar-light .navbar-nav .nav-link {
+  font-weight: bold;
+  color: white ;
 }
-.Spacing{
-  padding-top:4em;
+.naviLink:hover{
+  color: white;
 }
+.NavSpace{
+  margin-top: 10em;
+}
+.NavUnderTitleColour{
+  padding-top: 4em;
+  padding-bottom: 2em;
+  background-color: #f5dcf7;
+}
+
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Forms-Css-------------------------------------*/
+.FormSpacing{
+  margin-top : 1em;
+}
+/*------------------------------------------------------------------------------------*/
+/*----------------------------------------Index---------------------------------------*/
 .paragraph{
   font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
@@ -66,18 +68,34 @@ a{
   line-height: 1;
   padding-left: 2em;
 }
-#canceledlecImg{
-  height: 100%;
-  width: 20em;
+.Spacing{
+  padding-top:4em;
 }
-#CansLocation{
-  margin-top: 3em;
+.notices{
+  font-family: GothamBook,Arial,sans-serif;
 }
-
 #AboutUsImage{
   height: 100%;
   width: 28em;
 }
+#canceledlecImg{
+  height: 100%;
+  width: 20em;
+}
+#carouselSpacing{
+  width: 100%;
+}
+
+#CansLocation{
+  margin-top: 3em;
+}
+#logoimage{
+  width: 20em;
+  height: 100%;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------------Login---------------------------------------*/
 #LoginImage{
    height: 100%;
   width: 28em;
@@ -90,10 +108,22 @@ a{
 #LoginEmailSpacing{
   margin-right: -4em;
   margin-left:  -4em;
-  padding-top: 3em;
 }
 #LoginPassSpacing{
   margin-right: -4em;
   margin-left:  -4em;
-  padding-top: 1em;
 }
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Portfolio-------------------------------------*/
+
+.portfolioImg{
+  width : 15em;
+  height: 100%;
+}
+#portfolioLogoImg{
+  height: 100%;
+  width: 24em;
+  margin-top: -9em;
+}
+/*------------------------------------------------------------------------------------*/
