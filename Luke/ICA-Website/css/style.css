@@ -1,0 +1,55 @@
+#logoimage{
+  width: 330px;
+  height: 100%;
+
+}
+nav{
+  background-color: #f5dcf7;
+}
+footer{
+  padding-top: 8em;
+  margin-top: 15em;
+  background-color: #b5b1b5;
+}
+
+@font-face {
+  font-family:GothamBook;
+  src:url("css/Font/GothamBook.ttf");
+}
+h1{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #9f71a0;
+}
+a{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+
+}
+.pageindexcolor{
+  background-color: #f5dcf7;
+}
+.Spacing{
+  padding-top:4em;
+}
+.SpacingContact{
+    padding-top:10em;
+};
+
+.paragraph{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  line-height: 1;
+}
+#canceledlecImg{
+  height: 100%;
+  width: 300px;
+}
+.infoContact{
+  text-align: center;
+  font-family: GothamBook,Arial,sans-serif;
+
+}
