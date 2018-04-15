@@ -10,6 +10,10 @@
   font-family:GothamBook;
   src:url("Font/GothamBook.ttf");
 }
+@font-face{
+  font-family:GothamMedium;
+  src:url("Font/GothamMedium.ttf");
+}
 /*------------------------------------------------------------------------------------*/
 
 /*---------------------------------------Tags-----------------------------------------*/
@@ -26,6 +30,18 @@ h1{
   font-style:normal;
   color: white;
 }
+h2{
+  font-family: GothamMedium,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #b883ba;
+}
+h4{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: gray;
+}
 a{
   font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
@@ -38,6 +54,11 @@ p{
 }
 nav{
   background-color: #ddafe2;
+}
+label{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
 }
 /*------------------------------------------------------------------------------------*/
 
@@ -65,7 +86,19 @@ nav{
 .formSpacing{
   margin-top : 1em;
 }
-.
+.spacing{
+  padding-top:4em;
+}
+.spacing6{
+  padding-top: 6em;
+}
+.spacing10{
+  padding-top: 10em;
+}
+.spacing12{
+  padding-top: 12em;
+}
+
 /*----------------------------------------loginImage----------------------------------*/
 /*----------------------------------------Index---------------------------------------*/
 .paragraph{
@@ -75,9 +108,7 @@ nav{
   line-height: 1;
   padding-left: 2em;
 }
-.spacing{
-  padding-top:4em;
-}
+
 .notices{
   font-family: GothamBook,Arial,sans-serif;
 }
@@ -149,22 +180,66 @@ margin-left: 4.5em;
 
 .userPortfolio{
   width : 12em;
-  height: 100%;
+
   padding-bottom: 3em;
 }
 #userPortfoliotext{
   margin-left: 2em;
 }
-#userCorse{
+.userCorse{
   padding-left: 1em;
 }
-.portfolioButton{
+
+.portfolioEditButton{
   padding-right: 3em;
   padding-left: 3em;
   margin-left: 1em;
   margin-bottom: 2em;
   display: block;
 }
+.portfolioDeleteButton{
+  padding-right: 2.4em;
+  padding-left: 2.4em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  display: block;
+}
+/*------------------------------------------------------------------------------------*/
 
+/*--------------------------------------Edit-Portfolio--------------------------------*/
+.portfolioLabel{
+  display:block;
+}
+.Editbutton{
+  padding-left: 3em;
+  padding-right: 3em;
+
+  display: block;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*---------------------------------------Timetable------------------------------------*/
+.editbutton{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.timetableimg{
+  width : 12em;
+  height: 100%;
+  padding-bottom: 7em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Vacancies-------------------------------------*/
+.addButton{
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+.vacanciebutton{
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: 2em;
+}
 
 /*------------------------------------------------------------------------------------*/
