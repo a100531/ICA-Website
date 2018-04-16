@@ -139,6 +139,16 @@ p{
   margin-left: 0.6em;
   font-size: 1.3em;
 }
+/*---Add addVancancy---*/
+.addVancancyText{
+  margin-left: 0.6em;
+
+}
+/*---Add editTimeTable---*/
+.addTimeTableText{
+  margin-left: 0.6em;
+
+}
 /*---Add Student---*/
 #buttonSize{
  padding-left:  5em;
