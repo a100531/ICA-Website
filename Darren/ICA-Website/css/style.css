@@ -1,3 +1,7 @@
+
+/*----------------------------------------Fonts--------------------------------------*/
+
+
 @font-face {
   font-family:GothamBold;
   src:url("Font/GothamBold.ttf");
@@ -6,15 +10,60 @@
   font-family:GothamBook;
   src:url("Font/GothamBook.ttf");
 }
+@font-face{
+  font-family:GothamMedium;
+  src:url("Font/GothamMedium.ttf");
+}
+/*------------------------------------------------------------------------------------*/
 
-#logoimage{
-  width: 20em;
-  height: 100%;
+/*---------------------------------------Tags-----------------------------------------*/
 
+footer{
+  padding-top: 8em;
+  margin-top: 15em;
+  background-color: #b5b1b5;
+  width: 100%;
+}
+h1{
+  font-family: GothamBold,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: white;
+}
+h2{
+  font-family: GothamMedium,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #b883ba;
+}
+h4{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: gray;
+}
+a{
+  font-family: GothamBold,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+p{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
 }
 nav{
-  background-color: #f5dcf7;
+  background-color: #ddafe2;
 }
+label{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+/*------------------------------------------------------------------------------------*/
+
+/* -----------------------------------------navigation--------------------------------*/
+
 .navbar-light .navbar-nav .nav-link {
   font-weight: bold;
   color: white ;
@@ -22,43 +71,36 @@ nav{
 .naviLink:hover{
   color: white;
 }
-.NavSpace{
-  margin-top: 5em;
+.navSpace{
+  margin-top: 7em;
 }
-footer{
-  padding-top: 8em;
-  margin-top: 15em;
-  background-color: #b5b1b5;
-}
-
-.listA{
-  padding-left: 5em;
-}
-.aColor{
-  color: white;
+.navUnderTitleColour{
+  padding-top: 4em;
+  padding-bottom: 6em;
+  background-color: #ddafe2;
 }
 
-h1{
-  font-family: GothamBold,Arial,sans-serif;
-  font-weight:normal;
-  font-style:normal;
-  color: #9f71a0;
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Forms-Css-------------------------------------*/
+.formSpacing{
+  margin-top : 1em;
 }
-a{
-  font-family: GothamBold,Arial,sans-serif;
-  font-weight:normal;
-  font-style:normal;
-}
-.notices{
-  font-family: GothamBook,Arial,sans-serif;
-}
-#carouselSpacing{
-  padding-top: 5em;
-  width: 100%;
-}
-.Spacing{
+.spacing{
   padding-top:4em;
 }
+.spacing6{
+  padding-top: 6em;
+}
+.spacing10{
+  padding-top: 10em;
+}
+.spacing12{
+  padding-top: 12em;
+}
+
+/*----------------------------------------loginImage----------------------------------*/
+/*----------------------------------------Index---------------------------------------*/
 .paragraph{
   font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
@@ -66,34 +108,138 @@ a{
   line-height: 1;
   padding-left: 2em;
 }
+
+.notices{
+  font-family: GothamBook,Arial,sans-serif;
+}
+#aboutUsImage{
+  height: 100%;
+  width: 28em;
+}
 #canceledlecImg{
   height: 100%;
   width: 20em;
 }
-#CansLocation{
-  margin-top: 3em;
+#carouselSpacing{
+  width: 100%;
 }
 
-#AboutUsImage{
-  height: 100%;
-  width: 28em;
+#cansLocation{
+  margin-top: 3em;
 }
-#LoginImage{
+#logoimage{
+  width: 15em;
+  height: 100%;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------------Login---------------------------------------*/
+#loginImage{
    height: 100%;
   width: 28em;
   padding-top: 5em;
   padding-left: 3em;
 }
-#LoginTitleSpacing{
+#loginTitleSpacing{
   padding-left:5em;
 }
-#LoginEmailSpacing{
-  margin-right: -4em;
-  margin-left:  -4em;
-  padding-top: 3em;
+
+.loginbutton{
+padding-left: 3em;
+padding-right: 3em;
+margin-left: 4.5em;
 }
-#LoginPassSpacing{
-  margin-right: -4em;
-  margin-left:  -4em;
-  padding-top: 1em;
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Portfolio-------------------------------------*/
+
+.portfolioImg{
+  width : 12em;
+  height: 100%;
+  padding-bottom: 2em;
+  padding-top: 2em;
+
 }
+.portfolioLogoImg{
+  margin-top: -3em;
+  position: absolute;
+  width: 24em;
+  z-index: 1001;
+}
+
+.imgRow{
+  padding-top: 15em;
+  width: 100%;
+}
+.portfoliotext{
+  padding-left: 2em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Portfolio-User--------------------------------*/
+
+.userPortfolio{
+  width : 12em;
+
+  padding-bottom: 3em;
+}
+#userPortfoliotext{
+  margin-left: 2em;
+}
+.userCorse{
+  padding-left: 1em;
+}
+
+.portfolioEditButton{
+  padding-right: 3em;
+  padding-left: 3em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  display: block;
+}
+.portfolioDeleteButton{
+  padding-right: 2.4em;
+  padding-left: 2.4em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  display: block;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Edit-Portfolio--------------------------------*/
+.portfolioLabel{
+  display:block;
+}
+.Editbutton{
+  padding-left: 3em;
+  padding-right: 3em;
+
+  display: block;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*---------------------------------------Timetable------------------------------------*/
+.editbutton{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.timetableimg{
+  width : 12em;
+  height: 100%;
+  padding-bottom: 7em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Vacancies-------------------------------------*/
+.addButton{
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+.vacanciebutton{
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: 2em;
+}
+
+/*------------------------------------------------------------------------------------*/
