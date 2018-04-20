@@ -52,6 +52,7 @@ p{
   font-weight:normal;
   font-style:normal;
   color: #b5b1b5;
+  word-wrap: break-word;
 }
 nav{
   background-color: #ddafe2;
