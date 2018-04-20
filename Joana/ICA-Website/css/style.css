@@ -52,6 +52,8 @@ p{
   font-weight:normal;
   font-style:normal;
   color: #b5b1b5;
+  word-wrap: break-word;
+
 }
 nav{
   background-color: #ddafe2;
@@ -167,7 +169,7 @@ margin-left: 4.5em;
   margin-top: -3em;
   position: absolute;
   width: 24em;
-  z-index: 1001;
+  z-index: 0;
 }
 
 .imgRow{
@@ -239,6 +241,7 @@ margin-left: 4.5em;
 .addButton{
   padding-left: 1em;
   padding-right: 1em;
+  z-index: 9999;
 
 }
 .vacanciebutton{
