@@ -138,11 +138,10 @@ label{
 /*------------------------------------------------------------------------------------*/
 
 /*----------------------------------------Login---------------------------------------*/
-#loginImage{
-   height: 100%;
-  width: 28em;
+#loginFaceImg{
+   height: 22em;
   padding-top: 5em;
-  padding-left: 3em;
+  padding-left: 5em;
 }
 #loginTitleSpacing{
   padding-left:5em;
