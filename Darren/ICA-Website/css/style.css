@@ -52,6 +52,7 @@ p{
   font-weight:normal;
   font-style:normal;
   color: #b5b1b5;
+  word-wrap: break-word;
 }
 nav{
   background-color: #ddafe2;
@@ -143,7 +144,8 @@ body{
 /*----------------------------------------Login---------------------------------------*/
 #loginFaceImg{
    height: 20em;
-
+   padding-top: 5em;
+   padding-left: 5em;
 
 }
 #loginhelloImg{
@@ -173,7 +175,7 @@ margin-left: 6em;
   margin-top: -3em;
   position: absolute;
   width: 20em;
-  z-index: 1001;
+  z-index: 0;
 }
 
 .imgRow{
@@ -221,15 +223,17 @@ margin-left: 6em;
 .portfolioLabel{
   display:block;
 }
-.Editbutton{
+.uploadBtn{
   padding-left: 3em;
   padding-right: 3em;
-
   display: block;
 }
 
 /*------------------------------------------------------------------------------------*/
 /*---------------------------------------Timetable------------------------------------*/
+#editBtnStyle{
+  font-family: GothamBook,Arial,sans-serif;
+}
 .editbutton{
   padding-left: 3em;
   padding-right: 3em;
