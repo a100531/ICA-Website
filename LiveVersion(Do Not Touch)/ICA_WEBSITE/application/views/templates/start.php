@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Home</title>
+  <title>ICA-Website</title>
   <!-- Bootstrap core CSS -->
   
   <link text="text/css" href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">

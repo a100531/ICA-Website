@@ -54,4 +54,16 @@ class Home extends CI_Controller {
 		$this->load->view('portfolioUser');
 		$this->load->view('templates/end');
 	}
+	public function addAcademicResource()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('addAcademicResource');
+		$this->load->view('templates/end');
+	}
+	public function	addStudent()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('addStudent');
+		$this->load->view('templates/end');
+	}
 }

@@ -55,5 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'home/login';
 $route['academicResource'] = 'home/academicResource';
+$route['addAcademicResource'] = 'home/addAcademicResource';
+$route['addStudent'] = 'home/addStudent';
 $route['portfolio'] = 'home/portfolio';
 $route['portfolioUser'] = 'home/portfolioUser';

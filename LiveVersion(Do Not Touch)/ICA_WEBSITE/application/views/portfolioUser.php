@@ -38,26 +38,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 </nav>
 <div class="spacing"></div>
-<section>
-  <div class="row navUnderTitleColour">
-    <div class="col-lg-1">
-    </div>
-    <div class="col-lg-7" >
-        <h1 class ="pagetitle">Portfolio</h1>
-    </div>
-    <div class="col-lg-4 d-none d-md-block">
-        <img src="/assets/images/personal-portfolio.png" class="portfolioLogoImg" alt="Portfolio">
-    </div>
-  </div>
-</section>
 
-<div class="container-fluid">
-<div class="row imgRowWidth" >
-<div class="col-lg-12">
-</div>
-</div>
-<div class="spacing10"></div>
+
+
+
 <!--Content-->
+<div class="container-fluid">
+  <section>
+      <div class="row navUnderTitleColour">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-7" >
+            <h1 class ="pagetitle">Portfolio</h1>
+        </div>
+        <div class="col-lg-4 d-none d-md-block">
+            <img src="/assets/images/personal-portfolio.png" class="portfolioLogoImg" alt="Portfolio">
+        </div>
+      </div>
+  </section>
+</div>
+  <div class="spacing10"></div>
+<div class="container">
+
 
 <section>
   <form class="" action="index.html" method="post">
@@ -70,22 +72,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
         <p id="userPortfoliotext">Luke Dickhead</p>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-2">
     </div>
     <div class="col-lg-1">
         <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-2">
     </div>
     <div class="col-lg-1">
         <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
     </div>
 
-    <div class="col-lg-1">
+    <div class="col-lg-2">
     </div>
     <div class="col-lg-1">
         <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
     </div>
+
   </div>
   <div class="spacing">
   </div>
@@ -131,10 +134,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
 
-  </div>
+
   </form>
 </section>
-
+</div>
 
   </div>
     <!--Footer-->
