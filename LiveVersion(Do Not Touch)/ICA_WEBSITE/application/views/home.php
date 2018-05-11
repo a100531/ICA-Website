@@ -1,27 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Home</title>
-  <!-- Bootstrap core CSS -->
-  
-  <link text="text/css" href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for the website -->
-  <link href="/assets/css/style.css" rel="stylesheet">
-  <!-- Bootstrap core JavaScript-->
-  <script src="/assets/jquery/jquery.min.js"></script>
-  <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</head>
-
-<body>
+?>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a href="Index.html" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
+    <a href="index.php/login" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -133,14 +115,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
 
     <!--Footer-->
-      <footer>
-        <div class="row">
-
-        </div>
-      </footer>
-
-
-
-</body>
-
-</html>
+     
