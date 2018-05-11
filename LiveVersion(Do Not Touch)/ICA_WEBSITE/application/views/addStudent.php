@@ -43,14 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
   </nav>
-
-  <div class="row" >
-    <div class="col-lg-12 spacing10">
-    </div>
-  </div>
-
-
-
+  
+    <div class="spacing10"></div>
+  
   <section>
     <div class="container-fluid">
               <div class="row">

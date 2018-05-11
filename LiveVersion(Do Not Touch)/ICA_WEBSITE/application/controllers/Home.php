@@ -54,6 +54,12 @@ class Home extends CI_Controller {
 		$this->load->view('portfolioUser');
 		$this->load->view('templates/end');
 	}
+	public function editPortfolioUser()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('editPortfolioUser');
+		$this->load->view('templates/end');
+	}
 	public function addAcademicResource()
 	{
 		$this->load->view('templates/start');
@@ -66,4 +72,47 @@ class Home extends CI_Controller {
 		$this->load->view('addStudent');
 		$this->load->view('templates/end');
 	}
+	public function	addVacancy()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('addVacancy');
+		$this->load->view('templates/end');
+	}
+	public function	contactUs()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('contactUs');
+		$this->load->view('templates/end');
+	}
+	public function	editTimetable()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('editTimetable');
+		$this->load->view('templates/end');
+	}
+	public function	sickLeave()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('sickLeave');
+		$this->load->view('templates/end');
+	}
+	public function	studentList()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('studentList');
+		$this->load->view('templates/end');
+	}
+	public function	timetable()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('timetable');
+		$this->load->view('templates/end');
+	}
+	public function	vacancies()
+	{
+		$this->load->view('templates/start');
+		$this->load->view('vacancies');
+		$this->load->view('templates/end');
+	}
 }
+

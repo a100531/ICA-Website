@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Vacancie</title>
-  <!-- Bootstrap core CSS -->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for the website -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- Bootstrap core JavaScript-->
-  <script src="jquery/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a href="Index.html" class="navbar-brand"><img src="images/logo_white.png" id="logoimage"></a>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a href="Index.html" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,7 +47,7 @@
             <h1 class ="pagetitle">Vacancies</h1>
         </div>
         <div class="col-lg-4 d-none d-md-block">
-            <img src="images\vacancies.png" class="portfolioLogoImg" alt="Portfolio">
+            <img src="/assets/images/vacancies.png" class="portfolioLogoImg" alt="Portfolio">
         </div>
       </div>
   </section>
@@ -120,12 +105,3 @@
     </section>
       </div>
         <!--Footer-->
-
-      <footer>
-        <div class="row">
-        </div>
-      </footer>
-
-</body>
-
-</html>

@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Time Table</title>
-  <!-- Bootstrap core CSS -->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for the website -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- Bootstrap core JavaScript-->
-  <script src="jquery/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a href="Index.html" class="navbar-brand"><img src="images/logo_white.png" id="logoimage"></a>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a href="Index.html" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,13 +47,17 @@
             <h1 class ="pagetitle">TimeTable</h1>
         </div>
         <div class="col-lg-4 d-none d-md-block">
-            <img src="images\timetable.png" class="portfolioLogoImg" alt="Portfolio">
+            <img src="/assets/images/timetable.png" class="portfolioLogoImg" alt="Portfolio">
         </div>
       </div>
   </section>
+  <div class="container">
+ 
+    <div class="navSpace">
+    </div>
+  
 
-  <div class="container-fluid">
-    <div class="spacing10"></div>
+    <div class="spacing4"></div>
     <!--Content-->
     <section>
       <div class="row">
@@ -80,7 +69,6 @@
           </a>
         </div>
       </div>
-
       <div class="spacing">
 
       </div>
@@ -90,19 +78,19 @@
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
         <div class="col-lg-1">
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
         <div class="col-lg-1">
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
       </div>
 
@@ -112,30 +100,21 @@
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
         <div class="col-lg-1">
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
         <div class="col-lg-1">
         </div>
         <div class="col-lg-3">
           <p>Interactive Media - Year 1</p>
-          <img src="images\no-photo.png" class="rounded timetableimg" alt="portfolioImg">
+          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
         </div>
       </div>
     </section>
       </div>
         <!--Footer-->
-
-      <footer>
-        <div class="row">
-        </div>
-      </footer>
-
-</body>
-
-</html>
