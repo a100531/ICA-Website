@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </nav>
   <div class="spacing"></div>
-  <section>
+  <section class="container-fluid">
       <div class="row navUnderTitleColour">
         <div class="col-lg-1">
         </div>
@@ -52,12 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
   </section>
   <div class="container">
- 
-    <div class="navSpace">
-    </div>
-  
-
-    <div class="spacing4"></div>
+    <div class="spacing6"></div>
     <!--Content-->
     <section>
       <div class="row">
