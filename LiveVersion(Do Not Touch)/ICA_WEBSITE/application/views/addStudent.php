@@ -62,30 +62,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-1">
                   </div>
                   <div class="col-lg-3">
-                    <div class="form-group">
+                    <?=form_open('/', array('class' => 'form-group')); ?>
+
+<?php foreach ($form_inputs as $input): ?>
                     <div class="formSpacing">
-                      <input type="email" class="form-control"  id="emailAddStudent" placeholder="Email">
+                      <?=form_input($input);?>
                     </div>
-                    <div class="formSpacing">
-                      <input type="password" class="form-control" id="passwordAddStudent" placeholder="Password">
-                    </div>
-                    <div class="formSpacing">
-                      <input type="text" class="form-control" id="nameAddStudent" placeholder="Name">
-                    </div>
-                    <div class="formSpacing">
-                      <input type="text" class="form-control" id="surnameAddStudent" placeholder="Surname">
-                    </div>
+<?php endforeach; ?>
                     <div class="formSpacing">
                       <select class="custom-select" name="" id="courseAddStudent">
                         <option selected>Student</option>
                         <option value="1">STUDENT 1</option>
                         <option value="2">STUDENT 2</option>
                         <option value="3">STUDENT 3</option>
-
                       </select>
                     </div>
 
-                    </div>
+                    <?=form_close();?>
                   </div>
                   <div class="col-lg-6">
                   </div>
@@ -95,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-lg-5">
                     </div>
                     <div class="col-lg-5">
-                        <button type="button" class="btn btn-outline-secondary okayButton">Ok</button>
+<?=form_button($buttons['submit'])?>
                     </div>
                     <div class="col-lg-2">
                     </div>

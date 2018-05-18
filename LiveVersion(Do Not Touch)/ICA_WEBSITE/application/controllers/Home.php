@@ -68,8 +68,45 @@ class Home extends CI_Controller {
 	}
 	public function	addStudent()
 	{
+		$data = array(
+			'form_inputs'	=> array(
+				array(
+					'type' 			=> "email",
+					'class' 		=> "form-control",
+					'id' 			=> "emailAddStudent",
+					'placeholder' 	=> "Email"
+				),
+				array(
+					'type'			=> "password",
+					'class'			=> "form-control", 
+					'id'			=> "passwordAddStudent",
+					'placeholder' 	=> "Password"
+				),
+				array(
+					'type'			=> "text",
+					'class'			=> "form-control", 
+					'id'			=> "nameAddStudent",
+					'placeholder' 	=> "Name"
+				),
+				array(
+					'type'			=> "text",
+					'class'			=> "form-control", 
+					'id'			=> "surnameAddStudent",
+					'placeholder' 	=> "Surname"
+				)
+			),
+			'buttons'       => array(
+                'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+                    'content'       => 'Ok'
+                )
+			)
+			
+		);
+
 		$this->load->view('templates/start');
-		$this->load->view('addStudent');
+		$this->load->view('addStudent', $data);
 		$this->load->view('templates/end');
 	}
 	public function	addVacancy()
