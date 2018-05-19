@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Home</title>
+  <title>User Protfolio</title>
   <!-- Bootstrap core CSS -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for the website -->
@@ -26,7 +26,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="#">STUDENT PORTFOLIO</a>
+          <a class="nav-link" href="portfolio.html">STUDENT PORTFOLIO</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -34,17 +34,17 @@
                 STUDENT LINKS
               </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">RESOURCES</a>
-            <a class="dropdown-item" href="#">TIMETABLES</a>
+            <a class="dropdown-item" href="academicresource.html">RESOURCES</a>
+            <a class="dropdown-item" href="timetable.html">TIMETABLES</a>
           </div>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">VACANCIES</a>
+          <a class="nav-link" href="vacancies.html">VACANCIES</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT US</a>
+          <a class="nav-link" href="contactus.html">CONTACT US</a>
         </li>
 
         <li class="nav-item">
@@ -53,51 +53,58 @@
       </ul>
     </div>
   </nav>
-  <div class="container-fluid">
-  <div class="row imgRowWidth" >
-    <div class="col-lg-12 navSpace">
-    </div>
-  </div>
-  <section>
-      <div class="row navUnderTitleColour">
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-7" >
-            <h1>Portfolio</h1>
-        </div>
-        <div class="col-lg-4 d-none d-md-block">
-            <img src="images\personal-portfolio.png" class="portfolioLogoImg" alt="Portfolio">
-        </div>
-      </div>
-  </section>
+  <div class="spacing"></div>
+
+
+
 
     <!--Content-->
+    <div class="container-fluid">
+      <section>
+          <div class="row navUnderTitleColour">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-7" >
+                <h1 class ="pagetitle">Portfolio</h1>
+            </div>
+            <div class="col-lg-4 d-none d-md-block">
+                <img src="images\personal-portfolio.png" class="portfolioLogoImg" alt="Portfolio">
+            </div>
+          </div>
+      </section>
+    </div>
+      <div class="spacing10"></div>
+    <div class="container">
+
+    
     <section>
       <form class="" action="index.html" method="post">
-      <div class="row imgRow">
+
+      <div class="row">
 
         <div class="col-lg-1">
         </div>
         <div class="col-lg-2">
           <img src="images\no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
-            <label id="userPortfoliotext">Luke Dickhead</label>
+            <p id="userPortfoliotext">Luke Dickhead</p>
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
         </div>
         <div class="col-lg-1">
             <img src="images\no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
         </div>
-        <div class="col-lg-1">
+        <div class="col-lg-2">
         </div>
         <div class="col-lg-1">
             <img src="images\no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
         </div>
 
-        <div class="col-lg-1">
+        <div class="col-lg-2">
         </div>
         <div class="col-lg-1">
             <img src="images\no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
         </div>
+
       </div>
       <div class="spacing">
       </div>
@@ -110,7 +117,7 @@
         <div class="col-lg-1">
         </div>
         <div class="col-lg-4">
-          <p>DESCRIPTION</p>
+          <p class="addAcdResText">DESCRIPTION</p>
         </div>
         <div class="col-lg-4">
         </div>
@@ -120,8 +127,8 @@
         <div class="col-lg-1">
         </div>
         <div class="col-lg-2">
-          <button type="submit" class="btn portfolioEditButton">Edit</button>
-          <button type="submit" class="btn portfolioDeleteButton">Delete</button>
+          <button type="submit" class="btn btn-outline-secondary portfolioEditButton">Edit</button>
+          <button type="submit" class="btn btn-outline-secondary portfolioDeleteButton">Delete</button>
         </div>
         <div class="col-lg-1">
         </div>
@@ -138,15 +145,15 @@
           <div class="col-lg-4">
           </div>
           <div class="col-lg-5">
-              <p>LINK TO MY PORTFOLIO</p>
+              <p class="addAcdResText">LINK TO MY PORTFOLIO</p>
              <input type="text" class="form-control" placeholder="Example input">
           </div>
         </div>
 
-      </div>
+
       </form>
     </section>
-
+    </div>
 
       </div>
         <!--Footer-->
