@@ -69,29 +69,34 @@ class Home extends CI_Controller {
 	public function	addStudent()
 	{
 		$data = array(
+			'form_action'   => 'addStudent/submit',
 			'form_inputs'	=> array(
 				array(
 					'type' 			=> "email",
 					'class' 		=> "form-control",
 					'id' 			=> "emailAddStudent",
+					'name' 			=> "emailS",
 					'placeholder' 	=> "Email"
 				),
 				array(
 					'type'			=> "password",
 					'class'			=> "form-control", 
 					'id'			=> "passwordAddStudent",
+					'name' 			=> "passwordS",
 					'placeholder' 	=> "Password"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control", 
 					'id'			=> "nameAddStudent",
+					'name' 			=> "nameS",
 					'placeholder' 	=> "Name"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control", 
 					'id'			=> "surnameAddStudent",
+					'name' 			=> "surnameS",
 					'placeholder' 	=> "Surname"
 				)
 			),
@@ -109,6 +114,52 @@ class Home extends CI_Controller {
 		$this->load->view('addStudent', $data);
 		$this->load->view('templates/end');
 	}
+	public function register_submit()
+    {
+        # 1. Check the form for validation errors
+        if ($this->fv->run('addStudent') === FALSE)
+        {
+            echo validation_errors();
+            return;
+        }
+
+        # 2. Retrieve the first set of data
+        $email      = $this->input->post('emailS');
+		$password   = $this->input->post('passwordS');
+		
+
+        # 3. Generate a random keyword for added protection
+        # Since the encrypted key is in binary, we should change it to a hex string (0-9, a-f)
+        $salt       = bin2hex($this->encryption->create_key(8));
+
+        # 3. Add them to the database, and retrieve the ID
+        $id = $this->addstudent->add_user($email, $password, $salt);
+
+        # 4. If the ID didn't register, we can't continue.
+        if ($id === FALSE)
+        {
+            echo "We couldn't register the user because of a database error.";
+            return;
+        }
+
+        # 5. Retrieve the next data
+        $name       = $this->input->post('nameS');
+        $surname    = $this->input->post('surnameS');
+
+        # 6. Add the details to the next table
+        $check = $this->addstudent->user_details($id, $name, $surname);
+
+        # 7. If the query failed, delete the user to avoid partial data.
+        if ($check === FALSE)
+        {
+            $this->addstudent->delete_user($id);
+            echo "We couldn't register the user because of a database error.";
+            return;
+        }
+
+        # 8. Everything is fine, return to the home page.
+        redirect('login');
+    }
 	public function	addVacancy()
 	{
 		$this->load->view('templates/start');

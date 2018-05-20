@@ -54,16 +54,30 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'home/login';
+
 $route['academicResource'] = 'home/academicResource';
+
 $route['addAcademicResource'] = 'home/addAcademicResource';
+
 $route['addStudent'] = 'home/addStudent';
+$route['addStudent/submit'] = 'home/register_submit';
+
 $route['addVacancy'] = 'home/addVacancy';
+
 $route['contactUs'] = 'home/contactUs';
+
 $route['portfolio'] = 'home/portfolio';
+
 $route['portfolioUser'] = 'home/portfolioUser';
+
 $route['editPortfolioUser'] = 'home/editPortfolioUser';
+
 $route['editTimetable'] = 'home/editTimetable';
+
 $route['sickLeave'] = 'home/sickLeave';
+
 $route['studentList'] = 'home/studentList';
+
 $route['timetable'] = 'home/timetable';
+
 $route['vacancies'] = 'home/vacancies';
