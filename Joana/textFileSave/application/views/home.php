@@ -6,5 +6,7 @@
   </head>
   <body>
     <?= anchor('saveText', 'Click here to type text');?>
+  </br>
+    <?= anchor('saveImage', 'Click here to upload image');?>
   </body>
 </html>

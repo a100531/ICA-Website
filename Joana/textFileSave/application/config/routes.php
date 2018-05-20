@@ -54,3 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['saveText'] = 'system/saveText';
 $route['saveText/submit'] = 'system/saveText_submit';
+$route['saveImage'] = 'system/saveImage';
+//$route['saveImage/submit'] = 'system/saveImage_submit';
