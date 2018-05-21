@@ -32,10 +32,106 @@ class Home extends CI_Controller {
 	}
 	public function login()
 	{
+		$data = array(
+			'form_action'   => 'login/submit',
+			'form_inputs'	=> array(
+				array(
+					'type' 					=> "email",
+					'class' 				=> "form-control",
+					'id' 						=> "email",
+					'name' 					=> "email",
+					'placeholder' 	=> "Email"
+				),
+				array(
+					'type'					=> "password",
+					'class'					=> "form-control",
+					'id'						=> "password",
+					'name' 					=> "password",
+					'placeholder' 	=> "Password"
+				)
+			),
+			'buttons'       => array(
+					'submit'        => array(
+					'type'          => 'submit',
+					'class'					=> 'btn btn-outline-secondary okayButton',
+					'content'       => 'Login'
+								)
+			)
+
+		);
+
 		$this->load->view('templates/start');
-		$this->load->view('login');
+		$this->load->view('login', $data);
 		$this->load->view('templates/end');
 	}
+
+	# The logout page
+	public function logout()
+	{
+		#1. remove the login data from the database
+		$data = $this->session->userdata;
+		$this->system->delete_session($data['id'], $data['session_code']);
+
+
+		# 2. remove te information form the session.
+		$this->session->unset_userdata(array(
+			'id', 'email', 'name','surname','session_code'
+		));
+
+		# 3. take the user home
+		redirect('addStudent');
+	}
+
+
+	public function login_submit()
+    {
+        # 1. Check the form for validation errors
+        if ($this->fv->run('login') === FALSE)
+        {
+            echo validation_errors();
+            return;
+        }
+
+        # 2. Retrieve the data for checking
+        $email          = $this->input->post('email');
+        $password       = $this->input->post('password');
+
+        # 3. Use the System Model to verify the password_strength
+        # this avoids exposing information (sry h4xx0rs lol)
+        $check = $this->system->check_password($email, $password);
+
+        # 4. if check came back as false, the password is wrong
+        if($check === FALSE)
+        {
+          echo "the email and password don't match.";
+          return;
+        }
+
+        # 5. Retieve the information from the database
+        # bin2hex converts binary data to hex(0-9, a-f)
+        $code =  bin2hex($this->encryption->create_key(16));
+
+        # 6. try to log in.
+        $data = $this->system->set_login_data($check, $code);
+
+        # 7. if there's an error, stop Here
+        if($data === FALSE)
+        {
+          echo "we could not log you in :D";
+          return;
+        }
+        # 8. we'll check back in an hour
+        $data['refresh'] = time() + 60 * 60;
+
+        # 9. write everythign to CodeIgniter's cookie
+        $this->session->set_userdata($data);
+
+        # 10. redirect hostname
+        redirect('home');
+    }
+
+
+
 	public function academicResource()
 	{
 		$this->load->view('templates/start');
@@ -80,21 +176,21 @@ class Home extends CI_Controller {
 				),
 				array(
 					'type'			=> "password",
-					'class'			=> "form-control", 
+					'class'			=> "form-control",
 					'id'			=> "passwordAddStudent",
 					'name' 			=> "passwordS",
 					'placeholder' 	=> "Password"
 				),
 				array(
 					'type'			=> "text",
-					'class'			=> "form-control", 
+					'class'			=> "form-control",
 					'id'			=> "nameAddStudent",
 					'name' 			=> "nameS",
 					'placeholder' 	=> "Name"
 				),
 				array(
 					'type'			=> "text",
-					'class'			=> "form-control", 
+					'class'			=> "form-control",
 					'id'			=> "surnameAddStudent",
 					'name' 			=> "surnameS",
 					'placeholder' 	=> "Surname"
@@ -107,7 +203,7 @@ class Home extends CI_Controller {
                     'content'       => 'Ok'
                 )
 			)
-			
+
 		);
 
 		$this->load->view('templates/start');
@@ -125,15 +221,15 @@ class Home extends CI_Controller {
 
         # 2. Retrieve the first set of data
         $email      = $this->input->post('emailS');
-		$password   = $this->input->post('passwordS');
-		
+				$password   = $this->input->post('passwordS');
+
 
         # 3. Generate a random keyword for added protection
         # Since the encrypted key is in binary, we should change it to a hex string (0-9, a-f)
         $salt       = bin2hex($this->encryption->create_key(8));
 
         # 3. Add them to the database, and retrieve the ID
-        $id = $this->addstudent->add_user($email, $password, $salt);
+        $id = $this->system->add_user($email, $password, $salt);
 
         # 4. If the ID didn't register, we can't continue.
         if ($id === FALSE)
@@ -147,12 +243,12 @@ class Home extends CI_Controller {
         $surname    = $this->input->post('surnameS');
 
         # 6. Add the details to the next table
-        $check = $this->addstudent->user_details($id, $name, $surname);
+        $check = $this->system->user_details($id, $name, $surname);
 
         # 7. If the query failed, delete the user to avoid partial data.
         if ($check === FALSE)
         {
-            $this->addstudent->delete_user($id);
+            $this->system->delete_user($id);
             echo "We couldn't register the user because of a database error.";
             return;
         }
@@ -203,4 +299,3 @@ class Home extends CI_Controller {
 		$this->load->view('templates/end');
 	}
 }
-

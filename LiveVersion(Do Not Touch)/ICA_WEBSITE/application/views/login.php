@@ -71,17 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-4">
   </div>
   <div class="col-lg-4">
-    <form class="" action="index.html" method="post">
-        <div class="formSpacing">
-            <input type="text" class="form-control" placeholder="Email">
-        </div>
-        <div class="formSpacing">
-            <input type="password" class="form-control" placeholder="Password">
-        </div>
-        <div class="formSpacing">
-            <button type="submit" class="btn btn-outline-secondary loginbutton">Login</button>
-        </div>
-    </form>
+    <?=form_open($form_action, array('class' => 'form-group')); ?>
+
+<?php foreach ($form_inputs as $input): ?>
+    <div class="formSpacing">
+      <?=form_input($input);?>
+    </div>
+<?php endforeach; ?>
+<?=form_button($buttons['submit'])?>
+<?=form_close();?>
   </div>
 </div>
 

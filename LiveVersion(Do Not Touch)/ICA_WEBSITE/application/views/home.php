@@ -36,6 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="nav-item">
           <a class="nav-link" href="Login.html">LOG IN</a>
         </li>
+        <li class="nav-item">
+          <?php echo anchor('logout', ' logout'); ?>
+        </li>
 
 
       </ul>
@@ -115,4 +118,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
 
     <!--Footer-->
-     
