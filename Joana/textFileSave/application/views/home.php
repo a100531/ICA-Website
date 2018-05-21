@@ -8,5 +8,7 @@
     <?= anchor('saveText', 'Click here to type text');?>
   </br>
     <?= anchor('saveImage', 'Click here to upload image');?>
+  </br>
+    <?= anchor('addInfo', 'Click here to add information');?>
   </body>
 </html>

@@ -55,4 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['saveText'] = 'system/saveText';
 $route['saveText/submit'] = 'system/saveText_submit';
 $route['saveImage'] = 'system/saveImage';
-//$route['saveImage/submit'] = 'system/saveImage_submit';
+$route['addInfo'] = 'system/addInfo';
+$route['addInfo/submit'] = 'system/addInfo_submit';

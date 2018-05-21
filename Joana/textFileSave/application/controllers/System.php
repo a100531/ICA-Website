@@ -207,7 +207,109 @@ class System extends MY_Controller {
             }
     }
 
+   /*
+    public function addInfo($email, $password, $salt)
+    {
 
+      $data = array(
+            'u_email'       => $email,
+            'u_password'    => password_hash($salt.$password, CRYPT_BLOWFISH),
+            'u_salt'        => strrev($salt)
+        );
 
+        $this->db->insert('tbl_users', $data);
+
+        return $this->db->insert_id();
+
+    }
+    */
+
+    public function addInfo()
+	{
+        $data = array(
+            'page_title'    => 'addInfo',
+            'form_action'   => 'addInfo/submit',
+            'form'          => array(
+                'Name'          => array(
+                    'type'          => 'text',
+                    'placeholder'   => 'Joseph',
+                    'name'          => 'name',
+                    'id'            => 'input-name'
+                ),
+                'Surname'       => array(
+                    'type'          => 'text',
+                    'placeholder'   => 'Borg',
+                    'name'          => 'surname',
+                    'id'            => 'input-surname'
+                ),
+                'Email'         => array(
+                    'type'          => 'email',
+                    'placeholder'   => 'me@example.com',
+                    'name'          => 'email',
+                    'id'            => 'input-email'
+                ),
+                'Password'      => array(
+                    'type'          => 'password',
+                    'placeholder'   => 'password',
+                    'name'          => 'password',
+                    'id'            => 'input-password'
+                ),
+            ),
+            'buttons'       => array(
+                'submit'        => array(
+                    'type'          => 'submit',
+                    'content'       => 'Log In'
+                )
+            )
+        );
+
+        $this->load->view('addInfo', $data);
+	}
+
+  public function addInfo_submit()
+  {
+    # 1. Check the form for validation errors
+        if ($this->fv->run('addInfo') === FALSE)
+        {
+            echo validation_errors();
+            return;
+        }
+
+        # 2. Retrieve the first set of data
+        $email      = $this->input->post('email');
+        $password   = $this->input->post('password');
+
+        # 3. Generate a random keyword for added protection
+        # Since the encrypted key is in binary, we should change it to a hex string (0-9, a-f)
+        $salt       = bin2hex($this->encryption->create_key(8));
+
+        # 3. Add them to the database, and retrieve the ID
+        $id = $this->system->add_user($email, $password, $salt);
+
+        # 4. If the ID didn't register, we can't continue.
+        if ($id === FALSE)
+        {
+            echo "We couldn't register the user because of a database error.";
+            return;
+        }
+
+        # 5. Retrieve the next data
+        $name       = $this->input->post('name');
+        $surname    = $this->input->post('surname');
+
+        # 6. Add the details to the next table
+        $check = $this->system->user_details($id, $name, $surname);
+
+        # 7. If the query failed, delete the user to avoid partial data.
+        if ($check === FALSE)
+        {
+            $this->system->delete_user($id);
+            echo "We couldn't register the user because of a database error.";
+            return;
+        }
+
+        # 8. Everything is fine, return to the home page.
+        redirect('/');
+  }
 
 }
