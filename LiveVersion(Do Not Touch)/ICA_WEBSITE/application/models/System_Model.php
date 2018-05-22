@@ -3,13 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class System_Model extends CI_Model {
     # Register a user into the first table
-    public function add_user($email, $password, $salt)
+    public function add_user($email, $password, $salt, $role)
     {
 
         $data = array(
             'u_email'       => $email,
             'u_password'    => password_hash($salt.$password, CRYPT_BLOWFISH),
-            'u_salt'        => strrev($salt)
+            'u_salt'        => strrev($salt),
+            'role_id'       => $role
         );
 
         $this->db->insert('tbl_users', $data);
@@ -74,7 +75,7 @@ class System_Model extends CI_Model {
 
     public function set_login_data($id, $code)
     {
-      #1. write the login information o stop the code Here
+      #1. write the login information or stop the code Here
       if (!$this->persist($id,$code))
       {
         return FALSE;
@@ -126,6 +127,43 @@ class System_Model extends CI_Model {
                         ->join('tbl_login_info', 'tbl_login_info.user.id = tbl_users.id', 'left')
                         ->get_where('tbl_users', $data)
                         ->num_rows() == 1;
+    }
+    public function all_courses_dropdown() 
+    {
+
+        // these lines are preparing the
+        // query to be run.
+        $courses = $this->db->select('id, c_name')
+                                ->order_by('c_name', 'asc')
+                                ->get('tbl_courses');
+
+        $array = [];
+        foreach ($courses->result_array() as $row)
+        {
+            $array[$row['id']] = $row['c_name'];
+        }
+
+        return $array;
+        
+    }
+
+    public function all_roles_dropdown() 
+    {
+
+        // these lines are preparing the
+        // query to be run.
+        $courses = $this->db->select('id, name')
+                                ->order_by('id', 'asc')
+                                ->get('tbl_roles');
+
+        $array = [];
+        foreach ($courses->result_array() as $row)
+        {
+            $array[$row['id']] = $row['name'];
+        }
+
+        return $array;
+        
     }
 
 }

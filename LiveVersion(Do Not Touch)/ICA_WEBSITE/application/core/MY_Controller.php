@@ -46,13 +46,13 @@ class MY_Controller extends CI_Controller {
         $nav['VACANCIES'] = 'vacancies';
         $nav['CONTACTUS'] = 'contactUs';
 
-        if(!$this->check_login())
+        if($this->check_login())
         {
-            $nav['LOG IN'] = 'login';
+            $nav['LOG OUT'] = 'logout';
         }
         else
         { 
-            $nav['LOG OUT'] = 'logout';
+            $nav['LOG IN'] = 'login'; 
         }
         
 

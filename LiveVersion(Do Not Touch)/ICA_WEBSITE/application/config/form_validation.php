@@ -18,7 +18,7 @@ $config = array(
     ),
 
     # The register form rules
-    'addStudent'      => array(
+    'addAccount'      => array(
         array(
             'field' => 'nameS',
             'label' => 'Name',

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-4">
-                  <h2>Add new student</h2>
+                  <h2>Add new account</h2>
                 </div>
                 <div class="col-lg-6">
                 </div>
@@ -29,12 +29,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endforeach; ?>
                     
                     <div class="formSpacing">
-                      <select class="custom-select" name="" id="courseAddStudent">
-                        <option selected>Student</option>
-                        <option value="1">STUDENT 1</option>
-                        <option value="2">STUDENT 2</option>
-                        <option value="3">STUDENT 3</option>
-                      </select>
+<?php echo form_dropdown('roles',$dropdownRoles,'3',array('class' => 'form-control')); ?>
+                    </div>
+                    <div class="formSpacing">
+<?php echo form_dropdown('category',$dropdownCourse,'/',array('class' => 'form-control')); ?>
                     </div>
                   </div>
                   <div class="col-lg-6">

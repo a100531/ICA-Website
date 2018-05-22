@@ -151,41 +151,45 @@ class Home extends MY_Controller {
 	{
 		$this->build('addAcademicResource');
 	}
-	public function	addStudent()
+	public function	addAccount()
 	{
 		
+
 		$data = array(
-			'form_action'   => 'addStudent/submit',
+			'form_action'   => 'addAccount/submit',
 			'form_inputs'	=> array(
 				array(
 					'type' 			=> "email",
 					'class' 		=> "form-control",
-					'id' 			=> "emailAddStudent",
+					'id' 			=> "emailAddAccount",
 					'name' 			=> "emailS",
 					'placeholder' 	=> "Email"
 				),
 				array(
 					'type'			=> "password",
 					'class'			=> "form-control",
-					'id'			=> "passwordAddStudent",
+					'id'			=> "passwordAddAccount",
 					'name' 			=> "passwordS",
 					'placeholder' 	=> "Password"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control",
-					'id'			=> "nameAddStudent",
+					'id'			=> "nameAddAccount",
 					'name' 			=> "nameS",
 					'placeholder' 	=> "Name"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control",
-					'id'			=> "surnameAddStudent",
+					'id'			=> "surnameAddAccount",
 					'name' 			=> "surnameS",
 					'placeholder' 	=> "Surname"
 				)
+				
 			),
+			'dropdownCourse'=> $this->system->all_courses_dropdown(),
+			'dropdownRoles'	=> $this->system->all_roles_dropdown(),
 			'buttons'       => array(
                 'submit'        => array(
 					'type'          => 'submit',
@@ -195,13 +199,13 @@ class Home extends MY_Controller {
 			)
 
 		);
-
-		$this->build('addStudent',$data);
+		
+		$this->build('addAccount',$data);
 	}
 	public function register_submit()
     {
         # 1. Check the form for validation errors
-        if ($this->fv->run('addStudent') === FALSE)
+        if ($this->fv->run('addAccount') === FALSE)
         {
             echo validation_errors();
             return;
@@ -209,7 +213,8 @@ class Home extends MY_Controller {
 
         # 2. Retrieve the first set of data
         $email      = $this->input->post('emailS');
-				$password   = $this->input->post('passwordS');
+		$password   = $this->input->post('passwordS');
+		$role   	= $this->input->post('roles');
 
 
         # 3. Generate a random keyword for added protection
@@ -217,7 +222,7 @@ class Home extends MY_Controller {
         $salt       = bin2hex($this->encryption->create_key(8));
 
         # 3. Add them to the database, and retrieve the ID
-        $id = $this->system->add_user($email, $password, $salt);
+        $id = $this->system->add_user($email, $password, $salt, $role);
 
         # 4. If the ID didn't register, we can't continue.
         if ($id === FALSE)
