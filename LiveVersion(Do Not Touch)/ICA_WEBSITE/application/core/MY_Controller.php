@@ -72,6 +72,7 @@ class MY_Controller extends CI_Controller {
     {
         # 1. Get the current session data into a variable.
         $data = $this->session->userdata;
+        
 
         # 2. Stop here if there is no sessions data
         if(!array_key_exists('session_code',$data))

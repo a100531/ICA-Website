@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="col-lg-1">
     </div>
     <div class="col-lg-7" >
-        <h1 class ="pagetitle">Portfolio’s of Interactive Media students</h1>
+        <h1 class ="pagetitle">Portfolios of Interactive Media students</h1>
     </div>
     <div class="col-lg-4 d-none d-lg-block">
         <img src="/assets/images/portfolio-list.png" class="portfolioLogoImg" alt="Portfolio">
