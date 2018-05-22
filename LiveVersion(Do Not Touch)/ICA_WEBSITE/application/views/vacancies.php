@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-7" >
             <h1 class ="pagetitle">Vacancies</h1>
         </div>
-        <div class="col-lg-4 d-none d-md-block">
+        <div class="col-lg-4 d-none d-lg-block">
             <img src="/assets/images/vacancies.png" class="portfolioLogoImg" alt="Portfolio">
         </div>
       </div>
