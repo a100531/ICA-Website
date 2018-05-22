@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <?=navbar($navbar);?>
+        <?=navbar($navbar, $extra);?>
     </div>
 </nav>
 <!--<div class="spacing10"></div>-->

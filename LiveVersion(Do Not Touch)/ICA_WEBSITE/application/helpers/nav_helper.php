@@ -33,7 +33,7 @@ if (!function_exists('navbar'))
     		}
 
             echo '<div ' .$attributes. '>';
-            echo '<ul class="navbar-nav ml-auto">';
+            echo '<ul class="navbar-nav">';
             foreach ($nav as $page => $item)
             {
                 if (!is_array($item)) nav_link($page, $item);

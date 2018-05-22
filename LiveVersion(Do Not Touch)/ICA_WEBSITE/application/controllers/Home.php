@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
 
 	function __construct()
@@ -26,31 +26,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('home');
-		$this->load->view('templates/end');
-	}
-
-	public function nav()
-	{
-		$data = array(
-			'navbar'        => array(
-				'STUDENT PORTFOLIO'        => 'portfolio',
-				'STUDENT LINKS'      => array(
-					'RESOURCES'        => 'academicResource',
-					'TIMETABLES'        => 'timetable'
-				),
-				'VACANCIES'        => 'vacancies',
-				'CONTACTUS'        => 'contactUs',
-				'LOG IN'        => 'login'
-			),
-			// this is an optional parameter, if you would like to add custom CSS to your navbar
-			'extra'         => array(
-				'id'         => 'dropdown-id-lol'
-			)
-		);
-		
-		$this->load->view('navbar', $data);
+		$this->build('home');
 	}
 
 	public function login()
@@ -83,9 +59,9 @@ class Home extends CI_Controller {
 
 		);
 
-		$this->load->view('templates/start');
-		$this->load->view('login', $data);
-		$this->load->view('templates/end');
+		
+		$this->build('login', $data);
+		
 	}
 
 	# The logout page
@@ -157,52 +133,26 @@ class Home extends CI_Controller {
 
 	public function academicResource()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('academicResource');
-		$this->load->view('templates/end');
+		$this->build('academicResource');
 	}
 	public function portfolio()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('portfolio');
-		$this->load->view('templates/end');
+		$this->build('portfolio');
 	}
 	public function portfolioUser()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('portfolioUser');
-		$this->load->view('templates/end');
+		$this->build('portfolioUser');
 	}
 	public function editPortfolioUser()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('editPortfolioUser');
-		$this->load->view('templates/end');
+		$this->build('editPortfolioUser');
 	}
 	public function addAcademicResource()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('addAcademicResource');
-		$this->load->view('templates/end');
+		$this->build('addAcademicResource');
 	}
 	public function	addStudent()
 	{
-		$data_links = array(
-			'navbar'        => array(
-				'STUDENT PORTFOLIO'        => 'portfolio',
-				'STUDENT LINKS'      => array(
-					'RESOURCES'        => 'academicResource',
-					'TIMETABLES'        => 'timetable'
-				),
-				'VACANCIES'        => 'vacancies',
-				'CONTACTUS'        => 'contactUs',
-				'LOG IN'        => 'login'
-			)
-			// this is an optional parameter, if you would like to add custom CSS to your navbar
-			//'extra'         => array(
-			//	'id'         => 'dropdown-id-lol'
-			//)
-		);
 		
 		$data = array(
 			'form_action'   => 'addStudent/submit',
@@ -246,10 +196,7 @@ class Home extends CI_Controller {
 
 		);
 
-		$this->load->view('templates/start');
-		$this->load->view('navbar',$data_links);
-		$this->load->view('addStudent', $data);
-		$this->load->view('templates/end');
+		$this->build('addStudent',$data);
 	}
 	public function register_submit()
     {
@@ -299,44 +246,30 @@ class Home extends CI_Controller {
     }
 	public function	addVacancy()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('addVacancy');
-		$this->load->view('templates/end');
+		$this->build('addVacancy');
 	}
 	public function	contactUs()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('contactUs');
-		$this->load->view('templates/end');
+		$this->build('contactUs');
 	}
 	public function	editTimetable()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('editTimetable');
-		$this->load->view('templates/end');
+		$this->build('editTimetable');
 	}
 	public function	sickLeave()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('sickLeave');
-		$this->load->view('templates/end');
+		$this->build('sickLeave');
 	}
 	public function	studentList()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('studentList');
-		$this->load->view('templates/end');
+		$this->build('studentList');
 	}
 	public function	timetable()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('timetable');
-		$this->load->view('templates/end');
+		$this->build('timetable');
 	}
 	public function	vacancies()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('vacancies');
-		$this->load->view('templates/end');
+		$this->build('vacancies');
 	}
 }
