@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller {
     {
 
         $this->load->view('templates/start');
-        $this->nav();
+        $this->load->view('navbar', $this->nav());
         if ($page != NULL)
         {
             if (is_array($page))
@@ -34,25 +34,63 @@ class MY_Controller extends CI_Controller {
 
     private function nav()
 	{
+        // basic page
+        $nav = [];
+        $nav['STUDENT PORTFOLIO'] = 'portfolio';
+
+            $dropdown = [];
+            $dropdown['RESOURCES'] = 'academicResource';
+            $dropdown['TIMETABLES'] = 'timetable';    
+        $nav['STUDENT LINKS'] = $dropdown;
+
+        $nav['VACANCIES'] = 'vacancies';
+        $nav['CONTACTUS'] = 'contactUs';
+
+        if(!$this->check_login())
+        {
+            $nav['LOG IN'] = 'login';
+        }
+        else
+        { 
+            $nav['LOG OUT'] = 'logout';
+        }
+        
+
 		$data = array(
-			'navbar'        => array(
-				'STUDENT PORTFOLIO'        => 'portfolio',
-				'STUDENT LINKS'      => array(
-					'RESOURCES'        => 'academicResource',
-					'TIMETABLES'        => 'timetable'
-				),
-				'VACANCIES'        => 'vacancies',
-				'CONTACTUS'        => 'contactUs',
-				'LOG IN'        => 'login'
-			),
+			'navbar'        => $nav,
 			// this is an optional parameter, if you would like to add custom CSS to your navbar
 			'extra'         => array(
 				'class'         => 'ml-auto'
 			)
         );
         
-        $this->load->view('navbar', $data);
+        return $data;
 		
-	}
+    }
+    
+    protected function check_login()
+    {
+        # 1. Get the current session data into a variable.
+        $data = $this->session->userdata;
+
+        # 2. Stop here if there is no sessions data
+        if(!array_key_exists('session_code',$data))
+        {
+            return FALSE;
+        }
+        # 3. If there is no refresh data or an hour has passed
+        # check the login data.
+        if(!array_key_exists('refresh', $data) || $data['refresh'] < time() )
+        {
+            if($this->system->check_data($data['id'], $data['email'], $data['session_code']))
+            {
+                $data['refresh'] = time() + 60 * 60;
+                return TRUE;
+            }
+            return FALSE;
+        }
+        # We don't have to check the data
+        return TRUE;
+    }
 
 }

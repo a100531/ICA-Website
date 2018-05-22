@@ -78,7 +78,7 @@ class Home extends MY_Controller {
 		));
 
 		# 3. take the user home
-		redirect('addStudent');
+		redirect('home');
 	}
 
 
