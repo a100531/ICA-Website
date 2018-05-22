@@ -30,6 +30,29 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('templates/end');
 	}
+
+	public function nav()
+	{
+		$data = array(
+			'navbar'        => array(
+				'STUDENT PORTFOLIO'        => 'portfolio',
+				'STUDENT LINKS'      => array(
+					'RESOURCES'        => 'academicResource',
+					'TIMETABLES'        => 'timetable'
+				),
+				'VACANCIES'        => 'vacancies',
+				'CONTACTUS'        => 'contactUs',
+				'LOG IN'        => 'login'
+			),
+			// this is an optional parameter, if you would like to add custom CSS to your navbar
+			'extra'         => array(
+				'id'         => 'dropdown-id-lol'
+			)
+		);
+		
+		$this->load->view('navbar', $data);
+	}
+
 	public function login()
 	{
 		$data = array(
@@ -164,6 +187,23 @@ class Home extends CI_Controller {
 	}
 	public function	addStudent()
 	{
+		$data_links = array(
+			'navbar'        => array(
+				'STUDENT PORTFOLIO'        => 'portfolio',
+				'STUDENT LINKS'      => array(
+					'RESOURCES'        => 'academicResource',
+					'TIMETABLES'        => 'timetable'
+				),
+				'VACANCIES'        => 'vacancies',
+				'CONTACTUS'        => 'contactUs',
+				'LOG IN'        => 'login'
+			)
+			// this is an optional parameter, if you would like to add custom CSS to your navbar
+			//'extra'         => array(
+			//	'id'         => 'dropdown-id-lol'
+			//)
+		);
+		
 		$data = array(
 			'form_action'   => 'addStudent/submit',
 			'form_inputs'	=> array(
@@ -207,6 +247,7 @@ class Home extends CI_Controller {
 		);
 
 		$this->load->view('templates/start');
+		$this->load->view('navbar',$data_links);
 		$this->load->view('addStudent', $data);
 		$this->load->view('templates/end');
 	}
