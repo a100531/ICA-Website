@@ -178,11 +178,44 @@ class System_Model extends CI_Model {
         $array = [];
         foreach ($lecturers->result_array() as $row)
         {
-            $array[$row['id']] = $row['u_email'];
+            $array[$row['u_email']] = $row['u_email'];
         }
 
         return $array;
         
+    }
+    public function all_sick_print() 
+    {
+        $currentDate = time();
+        // these lines are preparing the
+        // query to be run.
+        $lecturers = $this->db->select('id,s_name,s_surname,s_dateLong,s_date')
+                              ->order_by('s_date', 'desc')
+                              ->where('s_date >',$currentDate)
+                              ->get('tbl_sick');
+
+        return $lecturers;
+        
+        
+        
+    }
+
+    public function add_sick($lecturer, $date, $dateLong)
+    {   
+        $session = $this->session->userdata; 
+
+        $data = array(
+            's_name'        => $session['name'],
+            's_surname'     => $session['surname'],
+            's_dateLong'    => $dateLong,
+            's_date'        => $date
+            
+        );
+
+        $this->db->insert('tbl_sick', $data);
+
+        return $this->db->insert_id();
+
     }
 
 }

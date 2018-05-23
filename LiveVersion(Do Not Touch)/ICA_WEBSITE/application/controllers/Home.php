@@ -26,7 +26,12 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
-		$this->build('home');
+
+		$data = array(
+			'sickLeave' =>$this->system->all_sick_print()
+		);
+
+		$this->build('home',$data);
 	}
 
 	public function login()
@@ -252,25 +257,30 @@ class Home extends MY_Controller {
 	}
 	public function	sickLeave()
 	{
+		
+		$session = $this->session->userdata;
+
 		$data = array(
-			'form_action'   => 'addAccount/submit',
+			'form_action'   => 'sickLeave/submit',
 			'form_inputs'	=> array(
 				array(
 					'type' 			=> "date",
 					'class' 		=> "form-control",
 					'id' 			=> "emailAddAccount",
 					'name' 			=> "date",
-					'placeholder' 	=> "MM/DD/YYY"
+					'placeholder' 	=> "DD/MM/YYY"
 				
-				)
+				),
 			),
+			'Name' 		=> $session['name'],
+			'Surname' 	=> $session['surname'],
 			'dropdownLecturers'	=> $this->system->all_lecturers_dropdown(),
 			'buttons'       => array(
-                'submit'        => array(
+				'submit'        => array(
 					'type'          => 'submit',
 					'class'			=> 'btn btn-outline-secondary okayButton',
-                    'content'       => 'Ok'
-                	)
+					'content'       => 'Ok'
+					)
 			)
 			
 		);
@@ -278,18 +288,19 @@ class Home extends MY_Controller {
 		
 		
 		$this->build('sickLeave',$data);
+		
 	}
 	public function	sickLeave_submit()
 	{
-		if ($this->fv->run('sickLeave') === FALSE)
-        {
-            echo validation_errors();
-            return;
-        }
-
         # 2. Retrieve the first set of data
-        $email      = $this->input->post('lecturers');
-		$password   = $this->input->post('passwordS');
+        $lecturer      = $this->input->post('lecturers');
+		$date   	   = strtotime($this->input->post('date'));
+		$dateLong      = $this->input->post('date');
+
+		$this->system->add_sick($lecturer, $date,$dateLong);
+
+		redirect('home');
+
 	}
 	public function	studentList()
 	{

@@ -39,12 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 paragraph">
           <div class="spacing">
             <h1>Cancelled lessons & notices</h1>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
+<?php foreach ($sickLeave->result_array() as $sick): ?>
+                    <p class="notices">
+                      Lecturer: <?=$sick['s_name'];?> <?=$sick['s_surname'];?>, Sick Until: (<?=$sick['s_dateLong'];?>)
+                    </p>
+<?php endforeach;?>
           </div>
         </div>
         <div class="col-lg-1">

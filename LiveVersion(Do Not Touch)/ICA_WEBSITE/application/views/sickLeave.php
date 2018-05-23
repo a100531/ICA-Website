@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-3">
-<?php echo form_dropdown('lecturers',$dropdownLecturers,'/',array('class' => 'form-control')); ?>
+                <p><?=$Name?> <?=$Surname?></p>
                 </div>
                 <div class="col-lg-2">
                   <p>Date: TILL</p>

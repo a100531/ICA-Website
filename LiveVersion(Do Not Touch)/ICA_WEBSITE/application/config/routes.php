@@ -81,6 +81,7 @@ $route['editPortfolioUser/submit'] = 'portfolio/editPortfolioUser_submit';
 $route['editTimetable'] = 'home/editTimetable';
 
 $route['sickLeave'] = 'home/sickLeave';
+$route['sickLeave/submit'] = 'home/sickLeave_submit';
 
 $route['studentList'] = 'home/studentList';
 
