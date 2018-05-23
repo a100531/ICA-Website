@@ -166,4 +166,23 @@ class System_Model extends CI_Model {
         
     }
 
+    public function all_lecturers_dropdown() 
+    {
+
+        // these lines are preparing the
+        // query to be run.
+        $lecturers = $this->db->select('id, u_email')
+                              ->order_by('u_email', 'asc')
+                              ->get_where('tbl_users',array('role_id'=>'4'));
+
+        $array = [];
+        foreach ($lecturers->result_array() as $row)
+        {
+            $array[$row['id']] = $row['u_email'];
+        }
+
+        return $array;
+        
+    }
+
 }

@@ -252,7 +252,51 @@ class Home extends MY_Controller {
 	}
 	public function	sickLeave()
 	{
-		$this->build('sickLeave');
+		$data = array(
+			'form_action'   => 'addAccount/submit',
+			'form_inputs'	=> array(
+				array(
+					'type' 			=> "email",
+					'class' 		=> "form-control",
+					'id' 			=> "emailAddAccount",
+					'name' 			=> "emailS",
+					'placeholder' 	=> "Email"
+				),
+				array(
+					'type'			=> "password",
+					'class'			=> "form-control",
+					'id'			=> "passwordAddAccount",
+					'name' 			=> "passwordS",
+					'placeholder' 	=> "Password"
+				),
+				array(
+					'type'			=> "text",
+					'class'			=> "form-control",
+					'id'			=> "nameAddAccount",
+					'name' 			=> "nameS",
+					'placeholder' 	=> "Name"
+				),
+				array(
+					'type'			=> "text",
+					'class'			=> "form-control",
+					'id'			=> "surnameAddAccount",
+					'name' 			=> "surnameS",
+					'placeholder' 	=> "Surname"
+				)
+				
+			),
+			'dropdownLecturers'	=> $this->system->all_lecturers_dropdown(),
+			'buttons'       => array(
+                'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+                    'content'       => 'Ok'
+                )
+			)
+
+		);
+		
+		$this->build('sickLeave',$data);
 	}
 	public function	studentList()
 	{

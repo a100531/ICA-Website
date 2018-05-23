@@ -25,60 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-3">
-                  <select class="custom-select" name="">
-                    <option selected>lecturer</option>
-                    <option value="1">lecturer 1</option>
-                    <option value="2">lecturer 2</option>
-                    <option value="3">lecturer 3</option>
-
-                  </select>
+<?php echo form_dropdown('lecturers',$dropdownLecturers,'/',array('class' => 'form-control')); ?>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-2">
+                  <p>Date: TILL</p>
                 </div>
-              </div>
-              <div class="row formSpacing">
-
-                  <div class="col-lg-1">
+                <div class="col-lg-6">
+                  <div class="form-group"> <!-- Date input -->
+                    <input class="form-control" name="date" placeholder="MM/DD/YYY" type="date"/>
                   </div>
-                  <div class="col-lg-2">
-                    <p>Date: FROM</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group"> <!-- Date input -->
-                        <input class="form-control" name="date" placeholder="MM/DD/YYY" type="text"/>
-                      </div>
-                  </div>
-                  <div class="col-lg-1">
-                    <p>TILL</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group"> <!-- Date input -->
-                        <input class="form-control"  name="date" placeholder="MM/DD/YYY" type="text"/>
-                      </div>
-                      <div class="col-lg-2">
-                      </div>
-                  </div>
-
-              </div>
-              <div class="row">
-                <div class="col-lg-1">
                 </div>
-                <div class="col-lg-11">
-                  <p class="addAcdResText">EXPLANATION</p>
-                </div>
-
-              </div>
-              <div class="row">
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-9">
-                  <div class="form-group">
-                  <textarea class="form-control"  rows="7"></textarea>
-                 </div>
-                 </div>
-                 <div class="col-lg-2">
-                 </div>
-
               </div>
               <div class="row">
                 <div class="col-lg-5">
