@@ -57,3 +57,5 @@ $route['saveText/submit'] = 'system/saveText_submit';
 $route['saveImage'] = 'system/saveImage';
 $route['addInfo'] = 'system/addInfo';
 $route['addInfo/submit'] = 'system/addInfo_submit';
+$route['portfolio'] = 'system/portfolio';
+$route['portfolio/submit'] = 'system/portfolio_submit';
