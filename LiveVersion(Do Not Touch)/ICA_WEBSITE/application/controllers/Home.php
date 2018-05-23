@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
 
 	function __construct()
@@ -26,10 +26,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('home');
-		$this->load->view('templates/end');
+		$this->build('home');
 	}
+
 	public function login()
 	{
 		$data = array(
@@ -38,31 +37,31 @@ class Home extends CI_Controller {
 				array(
 					'type' 					=> "email",
 					'class' 				=> "form-control",
-					'id' 						=> "email",
+					'id' 					=> "email",
 					'name' 					=> "email",
-					'placeholder' 	=> "Email"
+					'placeholder' 			=> "Email"
 				),
 				array(
 					'type'					=> "password",
 					'class'					=> "form-control",
-					'id'						=> "password",
+					'id'					=> "password",
 					'name' 					=> "password",
-					'placeholder' 	=> "Password"
+					'placeholder' 			=> "Password"
 				)
 			),
 			'buttons'       => array(
 					'submit'        => array(
 					'type'          => 'submit',
-					'class'					=> 'btn btn-outline-secondary okayButton',
+					'class'			=> 'btn btn-outline-secondary okayButton',
 					'content'       => 'Login'
 								)
 			)
 
 		);
 
-		$this->load->view('templates/start');
-		$this->load->view('login', $data);
-		$this->load->view('templates/end');
+		
+		$this->build('login', $data);
+		
 	}
 
 	# The logout page
@@ -79,7 +78,7 @@ class Home extends CI_Controller {
 		));
 
 		# 3. take the user home
-		redirect('addStudent');
+		redirect('home');
 	}
 
 
@@ -134,68 +133,52 @@ class Home extends CI_Controller {
 
 	public function academicResource()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('academicResource');
-		$this->load->view('templates/end');
+		$this->build('academicResource');
 	}
-	public function portfolio()
-	{
-		$this->load->view('templates/start');
-		$this->load->view('portfolio');
-		$this->load->view('templates/end');
-	}
-	public function portfolioUser()
-	{
-		$this->load->view('templates/start');
-		$this->load->view('portfolioUser');
-		$this->load->view('templates/end');
-	}
-	public function editPortfolioUser()
-	{
-		$this->load->view('templates/start');
-		$this->load->view('editPortfolioUser');
-		$this->load->view('templates/end');
-	}
+	
 	public function addAcademicResource()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('addAcademicResource');
-		$this->load->view('templates/end');
+		$this->build('addAcademicResource');
 	}
-	public function	addStudent()
+	public function	addAccount()
 	{
+		
+
 		$data = array(
-			'form_action'   => 'addStudent/submit',
+			'form_action'   => 'addAccount/submit',
 			'form_inputs'	=> array(
 				array(
 					'type' 			=> "email",
 					'class' 		=> "form-control",
-					'id' 			=> "emailAddStudent",
+					'id' 			=> "emailAddAccount",
 					'name' 			=> "emailS",
 					'placeholder' 	=> "Email"
 				),
 				array(
 					'type'			=> "password",
 					'class'			=> "form-control",
-					'id'			=> "passwordAddStudent",
+					'id'			=> "passwordAddAccount",
 					'name' 			=> "passwordS",
 					'placeholder' 	=> "Password"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control",
-					'id'			=> "nameAddStudent",
+					'id'			=> "nameAddAccount",
 					'name' 			=> "nameS",
 					'placeholder' 	=> "Name"
 				),
 				array(
 					'type'			=> "text",
 					'class'			=> "form-control",
-					'id'			=> "surnameAddStudent",
+					'id'			=> "surnameAddAccount",
 					'name' 			=> "surnameS",
 					'placeholder' 	=> "Surname"
 				)
+				
 			),
+			'dropdownCourse'=> $this->system->all_courses_dropdown(),
+			'dropdownRoles'	=> $this->system->all_roles_dropdown(),
 			'buttons'       => array(
                 'submit'        => array(
 					'type'          => 'submit',
@@ -205,15 +188,13 @@ class Home extends CI_Controller {
 			)
 
 		);
-
-		$this->load->view('templates/start');
-		$this->load->view('addStudent', $data);
-		$this->load->view('templates/end');
+		
+		$this->build('addAccount',$data);
 	}
 	public function register_submit()
     {
         # 1. Check the form for validation errors
-        if ($this->fv->run('addStudent') === FALSE)
+        if ($this->fv->run('addAccount') === FALSE)
         {
             echo validation_errors();
             return;
@@ -221,7 +202,8 @@ class Home extends CI_Controller {
 
         # 2. Retrieve the first set of data
         $email      = $this->input->post('emailS');
-				$password   = $this->input->post('passwordS');
+		$password   = $this->input->post('passwordS');
+		$role   	= $this->input->post('roles');
 
 
         # 3. Generate a random keyword for added protection
@@ -229,7 +211,7 @@ class Home extends CI_Controller {
         $salt       = bin2hex($this->encryption->create_key(8));
 
         # 3. Add them to the database, and retrieve the ID
-        $id = $this->system->add_user($email, $password, $salt);
+        $id = $this->system->add_user($email, $password, $salt, $role);
 
         # 4. If the ID didn't register, we can't continue.
         if ($id === FALSE)
@@ -258,44 +240,30 @@ class Home extends CI_Controller {
     }
 	public function	addVacancy()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('addVacancy');
-		$this->load->view('templates/end');
+		$this->build('addVacancy');
 	}
 	public function	contactUs()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('contactUs');
-		$this->load->view('templates/end');
+		$this->build('contactUs');
 	}
 	public function	editTimetable()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('editTimetable');
-		$this->load->view('templates/end');
+		$this->build('editTimetable');
 	}
 	public function	sickLeave()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('sickLeave');
-		$this->load->view('templates/end');
+		$this->build('sickLeave');
 	}
 	public function	studentList()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('studentList');
-		$this->load->view('templates/end');
+		$this->build('studentList');
 	}
 	public function	timetable()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('timetable');
-		$this->load->view('templates/end');
+		$this->build('timetable');
 	}
 	public function	vacancies()
 	{
-		$this->load->view('templates/start');
-		$this->load->view('vacancies');
-		$this->load->view('templates/end');
+		$this->build('vacancies');
 	}
 }

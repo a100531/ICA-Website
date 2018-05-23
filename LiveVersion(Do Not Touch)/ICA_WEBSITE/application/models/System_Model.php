@@ -3,13 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class System_Model extends CI_Model {
     # Register a user into the first table
-    public function add_user($email, $password, $salt)
+    public function add_user($email, $password, $salt, $role)
     {
 
         $data = array(
             'u_email'       => $email,
             'u_password'    => password_hash($salt.$password, CRYPT_BLOWFISH),
-            'u_salt'        => strrev($salt)
+            'u_salt'        => strrev($salt),
+            'role_id'       => $role
         );
 
         $this->db->insert('tbl_users', $data);
@@ -74,7 +75,7 @@ class System_Model extends CI_Model {
 
     public function set_login_data($id, $code)
     {
-      #1. write the login information o stop the code Here
+      #1. write the login information or stop the code Here
       if (!$this->persist($id,$code))
       {
         return FALSE;
@@ -82,7 +83,7 @@ class System_Model extends CI_Model {
       return $this->db->select('
                           tbl_users.id,
                           tbl_roles.name AS role,
-                          tbl_users.u_email AS Email,
+                          tbl_users.u_email AS email,
                           tbl_user_details.u_name AS name,
                           tbl_user_details.u_surname AS surname,
                           tbl_login_info.u_persistence AS session_code,')
@@ -107,13 +108,62 @@ class System_Model extends CI_Model {
       return $this->db->affected_rows() == 1;
     }
     public function delete_session ($id, $code)
-  {
-    $data = array(
-        'user_id'                   =>$id,
-        'u_persistence'             =>$code
-    );
+    {
+        $data = array(
+            'user_id'                   =>$id,
+            'u_persistence'             =>$code
+        );
 
-    $this->db->delete('tbl_login_info', $data);
-  }
+        $this->db->delete('tbl_login_info', $data);
+    }
+    public function check_data($id, $email, $code)
+    {
+        $data = array(
+            'tbl_users.id'                  =>$id,
+            'tbl_users.u_email'             =>$email,
+            'tbl_login_info.U_persistence'  =>$code
+        );
+        return $this->db->select('tbl_users.id')
+                        ->join('tbl_login_info', 'tbl_login_info.user.id = tbl_users.id', 'left')
+                        ->get_where('tbl_users', $data)
+                        ->num_rows() == 1;
+    }
+    public function all_courses_dropdown() 
+    {
+
+        // these lines are preparing the
+        // query to be run.
+        $courses = $this->db->select('id, c_name')
+                                ->order_by('c_name', 'asc')
+                                ->get('tbl_courses');
+
+        $array = [];
+        foreach ($courses->result_array() as $row)
+        {
+            $array[$row['id']] = $row['c_name'];
+        }
+
+        return $array;
+        
+    }
+
+    public function all_roles_dropdown() 
+    {
+
+        // these lines are preparing the
+        // query to be run.
+        $courses = $this->db->select('id, name')
+                                ->order_by('id', 'asc')
+                                ->get('tbl_roles');
+
+        $array = [];
+        foreach ($courses->result_array() as $row)
+        {
+            $array[$row['id']] = $row['name'];
+        }
+
+        return $array;
+        
+    }
 
 }

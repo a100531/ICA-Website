@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
+/* Using Home controller */
 $route['login'] = 'home/login';
 $route['login/submit'] = 'home/login_submit';
 
@@ -62,18 +62,21 @@ $route['academicResource'] = 'home/academicResource';
 
 $route['addAcademicResource'] = 'home/addAcademicResource';
 
-$route['addStudent'] = 'home/addStudent';
-$route['addStudent/submit'] = 'home/register_submit';
+$route['addAccount'] = 'home/addAccount';
+$route['addAccount/submit'] = 'home/register_submit';
 
 $route['addVacancy'] = 'home/addVacancy';
 
 $route['contactUs'] = 'home/contactUs';
 
-$route['portfolio'] = 'home/portfolio';
+/* Using Portfolio controller */
 
-$route['portfolioUser'] = 'home/portfolioUser';
+$route['portfolio'] = 'portfolio/portfolio';
 
-$route['editPortfolioUser'] = 'home/editPortfolioUser';
+$route['portfolioUser'] = 'portfolio/portfolioUser';
+
+$route['editPortfolioUser'] = 'portfolio/editPortfolioUser';
+$route['editPortfolioUser/submit'] = 'portfolio/editPortfolioUser_submit';
 
 $route['editTimetable'] = 'home/editTimetable';
 
