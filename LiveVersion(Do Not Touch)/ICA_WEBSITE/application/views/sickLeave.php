@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <section>
     <div class="container">
-      <form class="" action="#" method="post">
+<?=form_open($form_action, array('class' => 'form-group')); ?>
               <div class="row">
                 <div class="col-lg-1">
                 </div>
@@ -31,8 +31,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <p>Date: TILL</p>
                 </div>
                 <div class="col-lg-6">
-                  <div class="form-group"> <!-- Date input -->
-                    <input class="form-control" name="date" placeholder="MM/DD/YYY" type="date"/>
+                  <div class="form-group">
+<?php foreach ($form_inputs as $input): ?>
+                  <?=form_input($input);?>
+<?php endforeach; ?>
                   </div>
                 </div>
               </div>
@@ -40,13 +42,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-5">
                 </div>
                 <div class="col-lg-2">
-                  <button type="button" class="btn btn-outline-secondary okayButton" >Ok</button>
+<?=form_button($buttons['submit'])?>
+<?=form_close();?>
                 </div>
                 <div class="col-lg-2">
 
                 </div>
             </div>
-              </form>
+              
           </div>
         </section>
 

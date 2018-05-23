@@ -256,34 +256,13 @@ class Home extends MY_Controller {
 			'form_action'   => 'addAccount/submit',
 			'form_inputs'	=> array(
 				array(
-					'type' 			=> "email",
+					'type' 			=> "date",
 					'class' 		=> "form-control",
 					'id' 			=> "emailAddAccount",
-					'name' 			=> "emailS",
-					'placeholder' 	=> "Email"
-				),
-				array(
-					'type'			=> "password",
-					'class'			=> "form-control",
-					'id'			=> "passwordAddAccount",
-					'name' 			=> "passwordS",
-					'placeholder' 	=> "Password"
-				),
-				array(
-					'type'			=> "text",
-					'class'			=> "form-control",
-					'id'			=> "nameAddAccount",
-					'name' 			=> "nameS",
-					'placeholder' 	=> "Name"
-				),
-				array(
-					'type'			=> "text",
-					'class'			=> "form-control",
-					'id'			=> "surnameAddAccount",
-					'name' 			=> "surnameS",
-					'placeholder' 	=> "Surname"
-				)
+					'name' 			=> "date",
+					'placeholder' 	=> "MM/DD/YYY"
 				
+				)
 			),
 			'dropdownLecturers'	=> $this->system->all_lecturers_dropdown(),
 			'buttons'       => array(
@@ -291,12 +270,26 @@ class Home extends MY_Controller {
 					'type'          => 'submit',
 					'class'			=> 'btn btn-outline-secondary okayButton',
                     'content'       => 'Ok'
-                )
+                	)
 			)
-
+			
 		);
+
+		
 		
 		$this->build('sickLeave',$data);
+	}
+	public function	sickLeave_submit()
+	{
+		if ($this->fv->run('sickLeave') === FALSE)
+        {
+            echo validation_errors();
+            return;
+        }
+
+        # 2. Retrieve the first set of data
+        $email      = $this->input->post('lecturers');
+		$password   = $this->input->post('passwordS');
 	}
 	public function	studentList()
 	{
