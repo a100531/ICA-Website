@@ -37,22 +37,22 @@ class Home extends MY_Controller {
 				array(
 					'type' 					=> "email",
 					'class' 				=> "form-control",
-					'id' 						=> "email",
+					'id' 					=> "email",
 					'name' 					=> "email",
-					'placeholder' 	=> "Email"
+					'placeholder' 			=> "Email"
 				),
 				array(
 					'type'					=> "password",
 					'class'					=> "form-control",
-					'id'						=> "password",
+					'id'					=> "password",
 					'name' 					=> "password",
-					'placeholder' 	=> "Password"
+					'placeholder' 			=> "Password"
 				)
 			),
 			'buttons'       => array(
 					'submit'        => array(
 					'type'          => 'submit',
-					'class'					=> 'btn btn-outline-secondary okayButton',
+					'class'			=> 'btn btn-outline-secondary okayButton',
 					'content'       => 'Login'
 								)
 			)
@@ -135,18 +135,7 @@ class Home extends MY_Controller {
 	{
 		$this->build('academicResource');
 	}
-	public function portfolio()
-	{
-		$this->build('portfolio');
-	}
-	public function portfolioUser()
-	{
-		$this->build('portfolioUser');
-	}
-	public function editPortfolioUser()
-	{
-		$this->build('editPortfolioUser');
-	}
+	
 	public function addAcademicResource()
 	{
 		$this->build('addAcademicResource');

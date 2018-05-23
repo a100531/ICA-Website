@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!--Content-->
     <section>
-      <form class="" action="index.html" method="post">
+<?=form_open($form_action, array('class' => 'form-group')); ?>
         <div class="row">
           <div class="col-lg-1">
           </div>
@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-1">
           </div>
           <div class="col-lg-3">
+
             <h4 class="portfolioLabel">EDIT YOUR PROFILE PHOTO</h4>
             <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">
@@ -111,13 +112,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-5">
          </div>
          <div class="col-lg-5">
-            <button class="btn btn-outline-secondary okayButton" type="submit">Ok</button>
+<?=form_button($buttons['submit'])?>
+
           </div>
         </div>
 
+<?=form_close();?>
 
-
-      </form>
     </section>
 
 

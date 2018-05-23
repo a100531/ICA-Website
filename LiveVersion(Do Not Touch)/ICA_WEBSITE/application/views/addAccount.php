@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-lg-1">
                   </div>
                   <div class="col-lg-3">
-                    <?=form_open($form_action, array('class' => 'form-group')); ?>
+<?=form_open($form_action, array('class' => 'form-group')); ?>
 
 <?php foreach ($form_inputs as $input): ?>
                     <div class="formSpacing">
