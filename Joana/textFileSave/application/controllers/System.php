@@ -312,4 +312,152 @@ class System extends MY_Controller {
         redirect('/');
   }
 
+  public function portfolio()
+  {
+    $data = array(
+        'page_title'    => 'portfolio',
+        'form_action'   => 'portfolio/submit',
+        'form'          => array(
+            'Profile'         => array(
+                'type'          => 'file',
+                'placeholder'   => 'Upload your image',
+                'name'          => 'userfile',
+                'id'            => 'input-image',
+                'size'          => '20'
+            ),
+            'Portfolio'         => array(
+                'type'          => 'file',
+                'placeholder'   => 'Upload your image',
+                'name'          => 'images[]',
+                'id'            => 'input-image2',
+                'size'          => '20',
+                'multiple'      => NULL
+            ),
+            'Link'         => array(
+                'type'          => 'text',
+                'placeholder'   => 'Insert your link',
+                'name'          => 'portfolio_link',
+                'id'            => 'input-link'
+            ),
+            'Description'      => array(
+                'type'          => 'text',
+                'placeholder'   => 'Insert your description',
+                'name'          => 'portfolio_description',
+                'id'            => 'input-description'
+            )
+
+        ),
+        'buttons'       => array(
+            'submit'        => array(
+                'type'          => 'submit',
+                'content'       => 'Save',
+                'value'         => 'upload'
+            )
+        )
+    );
+
+    $this->load->view('portfolio', $data);
+  }
+
+  public function portfolio_submit()
+  {
+
+    $data  = $this->do_uploadProfile();
+    $data2 = $this->do_uploadPortfolio();
+    $data3 = $this->input->post('portfolio_link');
+    $data4 = $this->input->post('portfolio_description');
+
+
+    $this->portfolio_link($data3);
+    $this->portfolio_description($data4);
+
+  }
+
+  public function portfolio_link($data3)
+  {
+    //$date_name = time();
+    $id_num = 1;
+      if ( ! write_file('./assets/portfolio/'.$id_num.'link.txt', $data3))
+      {
+              echo 'Unable to write the file';
+      }
+      else
+      {
+              echo 'File written!';
+      }
+  }
+
+  public function portfolio_description($data4)
+  {
+    //$date_name = time();
+    //$date_name1 = $date_name +1;
+    $id_num = 1;
+      if ( ! write_file('./assets/portfolio/'.$id_num.'description.txt', $data4))
+      {
+              echo 'Unable to write the file';
+      }
+      else
+      {
+              echo 'File written!';
+      }
+  }
+
+  public function do_uploadProfile()
+    {
+      $id_num = 1;
+      $id_num_profile = $id_num.'profile.jpg';
+      $config['file_name']            = $id_num_profile;
+      $config['upload_path']          = './assets/portfolio/';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 10000;
+      //$config['max_width']            = 1024;
+      //$config['max_height']           = 768;
+
+      $this->load->library('upload', $config);
+
+      if ( ! $this->upload->do_upload('userfile'))
+      {
+              $error = array('error' => $this->upload->display_errors());
+              var_dump ($error);
+
+            //  $this->load->view('upload_form', $error);
+      }
+      else
+      {
+              $data = array('upload_data' => $this->upload->data());
+
+              echo 'File written!';
+
+              //$this->load->view('upload_success', $data);
+      }
+    }
+
+    public function do_uploadPortfolio()
+      {
+        $config['file_name']            = 'portfolio.jpg';
+        $config['upload_path']          = './assets/portfolio/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 10000;
+        //$config['max_width']            = 1024;
+        //$config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('images[]'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+                var_dump ($error);
+
+              //  $this->load->view('upload_form', $error);
+        }
+        else
+        {
+                $data = array('upload_data' => $this->upload->data());
+
+                echo 'Files written!';
+
+                //$this->load->view('upload_success', $data);
+        }
+      }
+
 }

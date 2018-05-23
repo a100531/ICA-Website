@@ -10,5 +10,7 @@
     <?= anchor('saveImage', 'Click here to upload image');?>
   </br>
     <?= anchor('addInfo', 'Click here to add information');?>
+  </br>
+    <?= anchor('portfolio', 'Click here to add portfolio');?>
   </body>
 </html>
