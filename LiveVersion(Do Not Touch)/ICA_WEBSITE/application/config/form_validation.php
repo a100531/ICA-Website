@@ -47,6 +47,18 @@ $config = array(
             'label' => 'date',
             'rules' => 'required'
         )
-    )
+    ),
+    'editPortfolioUser'      => array(
+        array(
+            'field' => 'description',
+            'label' => 'description',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'link',
+            'label' => 'link',
+            'rules' => 'required'
+        )
+    ),
 
 );

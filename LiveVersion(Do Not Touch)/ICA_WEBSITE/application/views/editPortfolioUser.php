@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-3">
 
             <h4 class="portfolioLabel">EDIT YOUR PROFILE PHOTO</h4>
-            <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
+            <img src="<?=$profileImage?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
 <?=form_input($profile)?>
             </label>
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-1">
           </div>
           <div class="col-lg-3">
-            <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
+            <img src="<?=$profileImage1?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
 <?=form_input($portfolio1)?>
             </label>
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div class="col-lg-3">
 
-            <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
+            <img src="<?=$profileImage2?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
 <?=form_input($portfolio2)?>
             </label>
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div class="col-lg-3">
 
-            <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
+            <img src="<?=$profileImage3?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
 <?=form_input($portfolio3)?>
             </label>
@@ -98,11 +98,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-              <textarea class="form-control " rows="5"></textarea>
+<?=form_textarea($description)?>
             </div>
 
             <p class="addAcdResText">LINK TO MY PORTFOLIO</p>
-           <input type="text" class="form-control" placeholder="Example input">
+<?=form_input($link)?>
           </div>
           <div class="col-lg-5">
           </div>
