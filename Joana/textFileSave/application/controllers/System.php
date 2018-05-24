@@ -328,10 +328,9 @@ class System extends MY_Controller {
             'Portfolio'         => array(
                 'type'          => 'file',
                 'placeholder'   => 'Upload your image',
-                'name'          => 'images[]',
+                'name'          => 'portfolioImage2',
                 'id'            => 'input-image2',
-                'size'          => '20',
-                'multiple'      => NULL
+                'size'          => '20'
             ),
             'Link'         => array(
                 'type'          => 'text',
@@ -435,7 +434,9 @@ class System extends MY_Controller {
 
     public function do_uploadPortfolio()
       {
-        $config['file_name']            = 'portfolio.jpg';
+        $id_num = 1;
+        $id_num_portfolio = $id_num.'portfolio.jpg';
+        $config['file_name']            = $id_num_portfolio;
         $config['upload_path']          = './assets/portfolio/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 10000;
@@ -444,7 +445,7 @@ class System extends MY_Controller {
 
         $this->load->library('upload', $config);
 
-        if ( ! $this->upload->do_upload('images[]'))
+        if ( ! $this->upload->do_upload('portfolioImage2'))
         {
                 $error = array('error' => $this->upload->display_errors());
                 var_dump ($error);
