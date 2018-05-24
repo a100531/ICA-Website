@@ -1,45 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a href="Index.html" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">STUDENT PORTFOLIO</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                STUDENT LINKS
-              </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="academicresource.html">RESOURCES</a>
-            <a class="dropdown-item" href="timetable.html">TIMETABLES</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="vacancies.html">VACANCIES</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="contactus.html">CONTACT US</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="Login.html">LOG IN</a>
-        </li>
-      </ul>
-
-    </div>
-
-  </nav>
 
 
     <div class="spacing10">
@@ -49,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <section>
     <div class="container">
-      <form class="" action="#" method="post">
+<?=form_open($form_action, array('class' => 'form-group')); ?>
               <div class="row">
                 <div class="col-lg-1">
                 </div>
@@ -63,72 +25,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-3">
-                  <select class="custom-select" name="">
-                    <option selected>lecturer</option>
-                    <option value="1">lecturer 1</option>
-                    <option value="2">lecturer 2</option>
-                    <option value="3">lecturer 3</option>
-
-                  </select>
+                <p><?=$Name?> <?=$Surname?></p>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-2">
+                  <p>Date: TILL</p>
                 </div>
-              </div>
-              <div class="row formSpacing">
-
-                  <div class="col-lg-1">
-                  </div>
-                  <div class="col-lg-2">
-                    <p>Date: FROM</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group"> <!-- Date input -->
-                        <input class="form-control" name="date" placeholder="MM/DD/YYY" type="text"/>
-                      </div>
-                  </div>
-                  <div class="col-lg-1">
-                    <p>TILL</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group"> <!-- Date input -->
-                        <input class="form-control"  name="date" placeholder="MM/DD/YYY" type="text"/>
-                      </div>
-                      <div class="col-lg-2">
-                      </div>
-                  </div>
-
-              </div>
-              <div class="row">
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-11">
-                  <p class="addAcdResText">EXPLANATION</p>
-                </div>
-
-              </div>
-              <div class="row">
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-9">
+                <div class="col-lg-6">
                   <div class="form-group">
-                  <textarea class="form-control"  rows="7"></textarea>
-                 </div>
-                 </div>
-                 <div class="col-lg-2">
-                 </div>
-
+<?php foreach ($form_inputs as $input): ?>
+                  <?=form_input($input);?>
+<?php endforeach; ?>
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-lg-5">
                 </div>
                 <div class="col-lg-2">
-                  <button type="button" class="btn btn-outline-secondary okayButton" >Ok</button>
+<?=form_button($buttons['submit'])?>
+<?=form_close();?>
                 </div>
                 <div class="col-lg-2">
 
                 </div>
             </div>
-              </form>
+              
           </div>
         </section>
 

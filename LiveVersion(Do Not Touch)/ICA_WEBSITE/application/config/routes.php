@@ -52,18 +52,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
+/* Using Home controller */
 $route['login'] = 'home/login';
+$route['login/submit'] = 'home/login_submit';
+
+$route['logout'] = 'home/logout';
+
 $route['academicResource'] = 'home/academicResource';
+
 $route['addAcademicResource'] = 'home/addAcademicResource';
-$route['addStudent'] = 'home/addStudent';
+
+$route['addAccount'] = 'home/addAccount';
+$route['addAccount/submit'] = 'home/register_submit';
+
 $route['addVacancy'] = 'home/addVacancy';
+
 $route['contactUs'] = 'home/contactUs';
-$route['portfolio'] = 'home/portfolio';
-$route['portfolioUser'] = 'home/portfolioUser';
-$route['editPortfolioUser'] = 'home/editPortfolioUser';
+
+/* Using Portfolio controller */
+
+$route['portfolio'] = 'portfolio/portfolio';
+
+$route['portfolioUser'] = 'portfolio/portfolioUser';
+
+$route['editPortfolioUser'] = 'portfolio/editPortfolioUser';
+$route['editPortfolioUser/submit'] = 'portfolio/editPortfolioUser_submit';
+
 $route['editTimetable'] = 'home/editTimetable';
+
 $route['sickLeave'] = 'home/sickLeave';
+$route['sickLeave/submit'] = 'home/sickLeave_submit';
+
 $route['studentList'] = 'home/studentList';
+
 $route['timetable'] = 'home/timetable';
+
 $route['vacancies'] = 'home/vacancies';

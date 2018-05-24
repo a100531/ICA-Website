@@ -2,46 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a href="index.php/login" class="navbar-brand"><img src="/assets/images/logo_white.png" id="logoimage"></a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">STUDENT PORTFOLIO</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                STUDENT LINKS
-              </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">RESOURCES</a>
-            <a class="dropdown-item" href="#">TIMETABLES</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">VACANCIES</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT US</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="Login.html">LOG IN</a>
-        </li>
-
-
-      </ul>
-    </div>
-  </nav>
-  <div class="container-fluid">
+    <div class="container-fluid">
 
 
   <div class="row" >
@@ -78,12 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-4 paragraph">
           <div class="spacing">
             <h1>Cancelled lessons & notices</h1>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
-            <p class="notices">At vero eos et accusamus At vero eos et accusamus</p>
+<?php foreach ($sickLeave->result_array() as $sick): ?>
+                    <p class="notices">
+                      Lecturer: <?=$sick['s_name'];?> <?=$sick['s_surname'];?>, Sick Until: (<?=$sick['s_dateLong'];?>)
+                    </p>
+<?php endforeach;?>
           </div>
         </div>
         <div class="col-lg-1">
@@ -115,4 +75,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
 
     <!--Footer-->
-     
