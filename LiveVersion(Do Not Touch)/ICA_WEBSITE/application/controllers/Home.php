@@ -292,6 +292,13 @@ class Home extends MY_Controller {
 	}
 	public function	sickLeave_submit()
 	{
+
+		if ($this->fv->run('sickLeave') === FALSE)
+        {
+            redirect('sickLeave');
+            return;
+		}
+		
         # 2. Retrieve the first set of data
         $lecturer      = $this->input->post('lecturers');
 		$date   	   = strtotime($this->input->post('date'));

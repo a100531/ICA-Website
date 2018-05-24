@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!--Content-->
     <section>
-<?=form_open($form_action, array('class' => 'form-group')); ?>
+<?=form_open_multipart($form_action, array('class' => 'form-group')); ?>
         <div class="row">
           <div class="col-lg-1">
           </div>
@@ -30,8 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <h4 class="portfolioLabel">EDIT YOUR PROFILE PHOTO</h4>
             <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
-            <label class="btn btn-outline-secondary uploadBtn">
-                <input type="file" style="display:none"> Upload
+            <label class="btn btn-outline-secondary uploadBtn">Upload
+<?=form_input($profile)?>
             </label>
           </div>
           <div class="col-lg-8">
@@ -52,10 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-1">
           </div>
           <div class="col-lg-3">
-          <!--lookup input type file styling and revisit image clicking to upload image!!!! -->
             <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
-            <label class="btn btn-outline-secondary uploadBtn">
-                <input type="file" style="display:none"> Upload</input>
+            <label class="btn btn-outline-secondary uploadBtn">Upload
+<?=form_input($portfolio1)?>
             </label>
           </div>
           <div class="col-lg-1">
@@ -63,8 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-3">
 
             <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
-            <label class="btn btn-outline-secondary uploadBtn">
-                <input type="file" style="display:none"> Upload
+            <label class="btn btn-outline-secondary uploadBtn">Upload
+<?=form_input($portfolio2)?>
             </label>
           </div>
           <div class="col-lg-1">
@@ -72,8 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-3">
 
             <img src="/assets/images/no-photo.png" class="rounded userPortfolio" alt="portfolioImg">
-            <label class="btn btn-outline-secondary uploadBtn">
-                <input type="file" style="display:none"> Upload
+            <label class="btn btn-outline-secondary uploadBtn">Upload
+<?=form_input($portfolio3)?>
             </label>
           </div>
         </div>

@@ -39,5 +39,14 @@ $config = array(
             'label' => 'Password',
             'rules' => 'required|min_length[8]|password_strength'
         )
+    ),
+    // The sick leave form rules
+    'sickLeave'      => array(
+        array(
+            'field' => 'date',
+            'label' => 'date',
+            'rules' => 'required'
+        )
     )
+
 );

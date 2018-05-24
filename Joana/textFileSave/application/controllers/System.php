@@ -321,7 +321,7 @@ class System extends MY_Controller {
             'Profile'         => array(
                 'type'          => 'file',
                 'placeholder'   => 'Upload your image',
-                'name'          => 'userfile',
+                'name'          => 'portfolioImage',
                 'id'            => 'input-image',
                 'size'          => '20'
             ),
@@ -361,8 +361,9 @@ class System extends MY_Controller {
 
   public function portfolio_submit()
   {
-
+    // 1 image at a time
     $data  = $this->do_uploadProfile();
+    // image array
     $data2 = $this->do_uploadPortfolio();
     $data3 = $this->input->post('portfolio_link');
     $data4 = $this->input->post('portfolio_description');
@@ -372,7 +373,7 @@ class System extends MY_Controller {
     $this->portfolio_description($data4);
 
   }
-
+  // this creates a text file for the link
   public function portfolio_link($data3)
   {
     //$date_name = time();
@@ -386,7 +387,7 @@ class System extends MY_Controller {
               echo 'File written!';
       }
   }
-
+  // this creates a text file for the description
   public function portfolio_description($data4)
   {
     //$date_name = time();
@@ -415,7 +416,7 @@ class System extends MY_Controller {
 
       $this->load->library('upload', $config);
 
-      if ( ! $this->upload->do_upload('userfile'))
+      if ( ! $this->upload->do_upload('portfolioImage'))
       {
               $error = array('error' => $this->upload->display_errors());
               var_dump ($error);
