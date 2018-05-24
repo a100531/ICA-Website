@@ -18,4 +18,13 @@ class Portfolio_Model extends CI_Model
     
         
     }
+
+    public function get_portfolios()
+    {
+        $data = $this->db->select('id, u_email')
+                         ->order_by('u_email', 'asc')
+                         ->get_where('tbl_users',array('u_portfolio'=>'1'));
+
+        return $data;
+    }
 }

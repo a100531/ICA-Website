@@ -25,54 +25,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="row">
       <div class="col-lg-1">
       </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
+<?php foreach ($portfolios->result_array() as $portfolio): ?>
+<?php $data = read_xml('portfolioUploads/'.$portfolio['id'].'/paths.xml') ?>
+      <div class="col-lg-3">
+        <img src="<?=$data['profileImage1']?>" class="rounded portfolioImg" alt="portfolioImg">
+        <p class="portfoliotext"><?=$portfolio['u_email']?></p>
       </div>
       <div class="col-lg-1">
       </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-2">
-        <img src="/assets/images/no-photo.png" class="rounded portfolioImg" alt="portfolioImg">
-        <p class="portfoliotext">Luke Dickhead</p>
-      </div>
-
+<?php endforeach;?>     
 
     </div>
 

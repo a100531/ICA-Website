@@ -26,7 +26,9 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
-
+		//$session = $this->session->userdata;
+		//var_dump($session);
+		//die;
 		$data = array(
 			'sickLeave' =>$this->system->all_sick_print()
 		);

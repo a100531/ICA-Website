@@ -11,11 +11,40 @@ class Portfolio extends MY_Controller {
     
     public function portfolio()
 	{
-		$this->build('portfolio');
+		$data = array(
+			'portfolios' =>$this->portfolio->get_portfolios()
+		);
+		$this->build('portfolio',$data);
 	}
 	public function portfolioUser()
 	{
-		$this->build('portfolioUser');
+		$session = $this->session->userdata;
+		$id = $session['id'];
+		$data = read_xml('portfolioUploads/'.$id.'/paths.xml');
+		if($data != NULL)
+		{
+			$portfolio = array(
+				'portfolioImage1'   => $data['profileImage1'],
+				'portfolioImage2'   => $data['profileImage2'],
+				'portfolioImage3'   => $data['profileImage3'],
+				'portfolioImage4'   => $data['profileImage4'],
+				'description'		=> $data['description'],
+				'link'				=> $data['link'],
+				'name'				=> $session['name'],
+				'surname'				=> $session['surname'],
+				);
+			
+	
+			
+	
+			$this->build('portfolioUser',$portfolio);
+		}
+		else{
+			redirect('editPortfolioUser');
+		}
+		
+
+		
 	}
     public function editPortfolioUser()
 	{
@@ -36,8 +65,8 @@ class Portfolio extends MY_Controller {
 					'name'          => 'portfolioImage1',
 					'id'            => 'input-image',
 					'size'          => '20',
-					'class'			=> 'inputImage',
-					'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage.png'
+					'class'			=> 'inputImage'
+					//'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage.png'
 				),
 				'profileImage1'	=> '/'.$path.'/'.$folder.'portfolioImage1.png',
 				'portfolio1'         => array(
@@ -46,8 +75,8 @@ class Portfolio extends MY_Controller {
 					'name'          => 'portfolioImage2',
 					'id'            => 'input-image',
 					'size'          => '20',
-					'class'			=> 'inputImage',
-					'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage1.png'
+					'class'			=> 'inputImage'
+					//'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage1.png'
 				),
 				'profileImage2'	=> '/'.$path.'/'.$folder.'portfolioImage2.png',
 				'portfolio2'         => array(
@@ -56,8 +85,8 @@ class Portfolio extends MY_Controller {
 					'name'          => 'portfolioImage3',
 					'id'            => 'input-image',
 					'size'          => '20',
-					'class'			=> 'inputImage',
-					'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage2.png'
+					'class'			=> 'inputImage'
+					//'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage2.png'
 				),
 				'profileImage3'	=> '/'.$path.'/'.$folder.'portfolioImage3.png',
 				'portfolio3'         => array(
@@ -66,15 +95,16 @@ class Portfolio extends MY_Controller {
 					'name'          => 'portfolioImage4',
 					'id'            => 'input-image',
 					'size'          => '20',
-					'class'			=> 'inputImage',
-					'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage3.png'
+					'class'			=> 'inputImage'
+					//'set_value'			=> '/'.$path.'/'.$folder.'portfolioImage3.png'
 				),
 				'link'         => array(
 					'type'          => 'text',
-					'placeholder'   => 'Insert your link',
+					'placeholder'   => 'http://example.com',
 					'name'          => 'link',
 					'id'            => 'input-link',
 					'class'			=> 'form-control'
+					
 				),
 				'description'      => array(
 					'name'        => 'description',
@@ -134,7 +164,7 @@ class Portfolio extends MY_Controller {
 				),
 				'link'         => array(
 					'type'          => 'text',
-					'placeholder'   => 'Insert your link',
+					'placeholder'   => 'http://example.com',
 					'name'          => 'link',
 					'id'            => 'input-link',
 					'class'			=> 'form-control'
@@ -212,9 +242,30 @@ class Portfolio extends MY_Controller {
 				  //  $this->load->view('upload_form', $error);
 			}
 			else
-			{		
-					array_push($savePath,'/'.$path.'/'.$folder.'portfolioImage'.$i.'.png');
+			{	
+				if($i === 1)
+				{
+					array_push($savePath,'/'.$path.'/'.$folder.'portfolioImage.png');
 					$data = array('upload_data' => $this->upload->data());
+				}
+				else if($i === 2)
+				{
+					
+					array_push($savePath,'/'.$path.'/'.$folder.'portfolioImage1.png');
+					$data = array('upload_data' => $this->upload->data());
+				}
+				else if($i === 3)
+				{
+					
+					array_push($savePath,'/'.$path.'/'.$folder.'portfolioImage2.png');
+					$data = array('upload_data' => $this->upload->data());
+				}
+				else if($i === 4)
+				{
+					
+					array_push($savePath,'/'.$path.'/'.$folder.'portfolioImage3.png');
+					$data = array('upload_data' => $this->upload->data());
+				}
 					
 					//echo 'File written!';
 	  
@@ -242,7 +293,7 @@ class Portfolio extends MY_Controller {
 		$this->portfolio->editPortfolioUser_Submit();
 		//print_r($savePath);
 		//die;
-		redirect('editPortfolioUser');
+		redirect('portfolioUser');
 		
 		
     }

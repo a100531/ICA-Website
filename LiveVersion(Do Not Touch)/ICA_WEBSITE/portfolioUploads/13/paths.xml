@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <paths>
-  <profileImage1>/portfolioUploads/13/13portfolioImage1.png</profileImage1>
-  <profileImage2>/portfolioUploads/13/13portfolioImage2.png</profileImage2>
-  <profileImage3>/portfolioUploads/13/13portfolioImage3.png</profileImage3>
-  <profileImage4>/portfolioUploads/13/13portfolioImage4.png</profileImage4>
-  <description>luke is always flying!!!!</description>
-  <link>lukeisfly.com</link>
+  <profileImage1>/portfolioUploads/13/13portfolioImage.png</profileImage1>
+  <profileImage2>/portfolioUploads/13/13portfolioImage1.png</profileImage2>
+  <profileImage3>/portfolioUploads/13/13portfolioImage2.png</profileImage3>
+  <profileImage4>/portfolioUploads/13/13portfolioImage3.png</profileImage4>
+  <description>hello this is a description</description>
+  <link>examplelink.com</link>
 </paths>
