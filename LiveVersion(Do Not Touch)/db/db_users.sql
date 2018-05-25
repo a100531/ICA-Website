@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2018 at 11:13 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.0.26
+-- Generation Time: May 25, 2018 at 09:10 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,12 +69,15 @@ INSERT INTO `tbl_login_info` (`user_id`, `u_login_time`, `u_persistence`) VALUES
 (4, 1527072775, '5da670d6dfe7e388d604b468889c3227'),
 (5, 1527170970, '946e8a49b53bc550ad3580f5478bcbaf'),
 (5, 1527174855, 'c703bdc6b3062a87e6980aa21f0c6335'),
-(11, 1527176301, '906583903b3f2919e1013bb2b3fff1f5'),
 (5, 1527176378, '4d27671b460c5c7d1ce9458415bd222a'),
 (5, 1527180110, '49cac9e437b4f06dd8eb82201329c20c'),
 (13, 1527189726, '46a8b33873d610eabee693ed8424b46f'),
-(6, 1527189860, 'f2f2a5f2d54691dd2eccd0d90245ffc5'),
-(11, 1527196084, '61cfe37b386a58f23724a30b8e163ec7');
+(11, 1527196084, '61cfe37b386a58f23724a30b8e163ec7'),
+(11, 1527250677, '31b7bacd4c5a02b4f2de5c58d8532356'),
+(6, 1527250851, 'ee2f18ff1d3d6995fdfea67ae0105aa0'),
+(6, 1527253016, '535d81af520100df92c4dda4e7f04b85'),
+(6, 1527257989, 'fd9a2f867db93ed81624da657d52888a'),
+(6, 1527262175, '992a5b550de2d492e1989e581bb78956');
 
 -- --------------------------------------------------------
 
