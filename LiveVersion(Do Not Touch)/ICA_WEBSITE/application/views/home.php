@@ -17,13 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="/assets/images/image1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="/assets/images/image2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="/assets/images/image3.png" alt="Third slide">
+                <img class="d-block w-100" src="/assets/images/image1.jpg" alt="First slide">
               </div>
             </div>
           </div>
@@ -48,9 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="col-lg-1">
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 d-none d-lg-block">
           <div id="cansLocation">
-            <img src="/assets/images/canceled-lectures.png" id="canceledlecImg" alt="canceled-lectures">
+            <img src="/assets/images/canceled-lectures.png"  id="canceledlecImg" alt="canceled-lectures">
           </div>
         </div>
       </div>
@@ -60,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-lg-1">
 
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 d-none d-lg-block">
           <img src="/assets/images/about-us.png" id="aboutUsImage" alt="About Us">
         </div>
 
