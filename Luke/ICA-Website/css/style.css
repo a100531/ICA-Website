@@ -22,14 +22,12 @@ nav{
 .naviLink:hover{
   color: white;
 }
+
 .NavSpace{
-  margin-top: 10em;
+  margin-top: 5em;
 }
-.NavUnderTitleColour{
-  padding-top: 4em;
-  padding-bottom: 2em;
-  background-color: #f5dcf7;
-}
+
+
 .FormSpacing{
   margin-top : 1em;
 }
@@ -39,13 +37,13 @@ footer{
   background-color: #b5b1b5;
 }
 
+
 .listA{
   padding-left: 5em;
 }
 .aColor{
   color: white;
 }
-
 h1{
   font-family: GothamBold,Arial,sans-serif;
   font-weight:normal;
@@ -57,11 +55,19 @@ a{
   font-weight:normal;
   font-style:normal;
 }
+
+h2{
+ color:#9f71a0;
+}
+
+p{
+  color: #b5b1b5;
+}
 .notices{
   font-family: GothamBook,Arial,sans-serif;
 }
 #carouselSpacing{
-
+  padding-top: 5em;
   width: 100%;
 }
 .Spacing{
@@ -81,7 +87,6 @@ a{
 #CansLocation{
   margin-top: 3em;
 }
-
 #AboutUsImage{
   height: 100%;
   width: 28em;
@@ -98,11 +103,14 @@ a{
 #LoginEmailSpacing{
   margin-right: -4em;
   margin-left:  -4em;
+  padding-top: 3em;
 }
 #LoginPassSpacing{
   margin-right: -4em;
   margin-left:  -4em;
+  padding-top: 1em;
 }
+
 
 .portfolioImg{
   width : 15em;
@@ -112,4 +120,80 @@ a{
   height: 100%;
   width: 24em;
   margin-top: -9em;
+}
+
+.form-control{
+  border-width: 3px;
+}
+
+/*---Luke these----------------------------------------------------------------------------------------------------------------------*/
+.NavSpaceNormalPages{
+    padding-top: 15em;
+}
+/*---addAcedemicRescources---*/
+.addAcdResImg{
+  height: 7em;
+  width: 10em;
+}
+.addAcdResText{
+  margin-left: 0.6em;
+  font-size: 1.3em;
+}
+/*---Add addVancancy---*/
+.addVancancyText{
+  margin-left: 0.6em;
+
+}
+/*---Add editTimeTable---*/
+.addTimeTableText{
+  margin-left: 0.6em;
+
+}
+/*---Add Student---*/
+#buttonSize{
+ padding-left:  5em;
+ padding-right:  5em;
+ margin-top: 10em;
+}
+/*--- Student List---*/
+.listSpacing{
+  text-align: center;
+  margin-left: 5em;
+}
+.listSpacingFirst{
+  text-align: center;
+  margin-left: 0.5em;
+}
+/*---Contact Us-NavSpace--*/
+.NavUnderTitleColour{
+  padding-top: 4em;
+  padding-bottom: 9em;
+  background-color: #f5dcf7;
+  color: white;
+}
+.contactImg{
+  position:absolute;
+   width: 25em;
+   height: 25em;
+   margin-top:-7em;
+
+}
+.NavSpaceContact{
+  padding-top: 10em;
+}
+.contactUsText{
+  text-align: center;
+}
+#courseAddStudent{
+   border-width: 3px;
+}
+/*---Sick leave---*/
+#sickleaveTextArea{
+ border-width: 3px;
+}
+#dateSickleave{
+  border-width: 3px;
+}
+#selectSickleave{
+  border-width: 3px;
 }

@@ -1,0 +1,299 @@
+
+/*----------------------------------------Fonts--------------------------------------*/
+
+
+@font-face {
+  font-family:GothamBold;
+  src:url("Font/GothamBold.ttf");
+}
+@font-face{
+  font-family:GothamBook;
+  src:url("Font/GothamBook.ttf");
+}
+@font-face{
+  font-family:GothamMedium;
+  src:url("Font/GothamMedium.ttf");
+}
+/*------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Tags-----------------------------------------*/
+
+footer{
+  padding-top: 8em;
+  margin-top: 15em;
+  background-color: #b5b1b5;
+  width: 100%;
+}
+h1{
+  font-family: GothamBold,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #b883ba;
+}
+h2{
+  font-family: GothamMedium,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #b883ba;
+}
+h4{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: gray;
+}
+a{
+  font-family: GothamBold,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+p{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  color: #b5b1b5;
+  word-wrap: break-word;
+}
+nav{
+  background-color: #ddafe2;
+}
+label{
+  font-family: GothamBook,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+body{
+  width: 100%;
+}
+/*------------------------------------------------------------------------------------*/
+
+/* -----------------------------------------navigation--------------------------------*/
+
+.navbar-light .navbar-nav .nav-link {
+  font-weight: bold;
+  color: white ;
+}
+.naviLink:hover{
+  color: white;
+}
+.navSpace{
+  margin-top: 4em;
+}
+.navUnderTitleColour{
+  padding-top: 4em;
+  padding-bottom: 6em;
+  background-color: #ddafe2;
+}
+.pagetitle{
+  color:white;
+}
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Forms-Css-------------------------------------*/
+.formSpacing{
+  margin-top : 1em;
+}
+.spacing2{
+  margin-top: 2em;
+}
+.spacing{
+  padding-top:4em;
+}
+.spacing6{
+  padding-top: 6em;
+}
+.spacing10{
+  padding-top: 10em;
+}
+.spacing12{
+  padding-top: 12em;
+}
+.inputImage{
+  display:none;
+}
+
+/*----------------------------------------loginImage----------------------------------*/
+/*----------------------------------------Index---------------------------------------*/
+.paragraph{
+  font-family: GothamBold,Arial,sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  line-height: 1;
+  padding-left: 2em;
+  color: #b5b1b5;
+}
+
+.notices{
+  font-family: GothamBook,Arial,sans-serif;
+}
+#aboutUsImage{
+  height: 100%;
+  width: 28em;
+}
+#canceledlecImg{
+  height: 100%;
+  width: 20em;
+}
+#carouselSpacing{
+  width: 100%;
+}
+
+#cansLocation{
+  margin-top: 3em;
+}
+#logoimage{
+  width: 7.5em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*----------------------------------------Login---------------------------------------*/
+#loginFaceImg{
+   height: 20em;
+   padding-top: 5em;
+   padding-left: 5em;
+
+}
+#loginhelloImg{
+  height: 13em;
+  padding-left: 5em;
+  padding-bottom: 4em;
+
+
+}
+.loginbutton{
+padding-left: 3em;
+padding-right: 3em;
+margin-left: 6em;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Portfolio-------------------------------------*/
+
+.portfolioImg{
+  width : 12em;
+  height: 100%;
+  padding-bottom: 2em;
+  padding-top: 2em;
+
+}
+.portfolioLogoImg{
+  margin-top: -3em;
+  position: absolute;
+  width: 20em;
+  z-index: 0;
+}
+
+.imgRow{
+  padding-top: 15em;
+  width: 100%;
+}
+.portfoliotext{
+  padding-left: 2em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Portfolio-User--------------------------------*/
+
+.userPortfolio{
+  width : 12em;
+
+  padding-bottom: 3em;
+}
+#userPortfoliotext{
+  margin-left: 2em;
+  margin-top: -2em;
+}
+.userCorse{
+  padding-left: 1em;
+  margin-top: -4em;
+}
+
+.portfolioEditButton{
+  padding-right: 3em;
+  padding-left: 3em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  display: block;
+}
+.portfolioDeleteButton{
+  padding-right: 2.4em;
+  padding-left: 2.4em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  display: block;
+}
+/*------------------------------------------------------------------------------------*/
+
+/*--------------------------------------Edit-Portfolio--------------------------------*/
+.portfolioLabel{
+  display:block;
+}
+.uploadBtn{
+  padding-left: 3em;
+  padding-right: 3em;
+  display: block;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*---------------------------------------Timetable------------------------------------*/
+#editBtnStyle{
+  font-family: GothamBook,Arial,sans-serif;
+}
+.editbutton{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.timetableimg{
+  width : 12em;
+  height: 100%;
+  padding-bottom: 7em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Vacancies-------------------------------------*/
+.addButton{
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+.vacanciebutton{
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: 2em;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------StudentList-----------------------------------*/
+.listSpacing{
+  text-align: center;
+  margin-left: 5em;
+}
+.listSpacingFirst{
+  text-align: center;
+  margin-left: 0.5em;
+}
+
+
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------AddAcademicResources-----------------------------------*/
+.addAcdResImg{
+  height: 7em;
+  width: 10em;
+}
+.addAcdResText{
+  margin-left: 0.6em;
+  margin-bottom: -0.1em;
+  color: #b5b1b5;
+
+}
+.okayButton{
+  padding-left: 4.5em;
+  padding-right: 4.5em;
+  margin-left: 1.5em;
+  margin-top: 4em;
+}
+/*------------------------------------------------------------------------------------*/
+/*--------------------------------------Contactus-------------------------------------*/
+.contactUsText{
+  text-align: center;
+}
+/*------------------------------------------------------------------------------------*/
