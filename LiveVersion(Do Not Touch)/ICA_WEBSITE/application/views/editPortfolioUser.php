@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h4 class="portfolioLabel">EDIT YOUR PROFILE PHOTO</h4>
             <img src="<?=$profileImage?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
-<?=form_input($profile)?>
+<?=form_input($Files)?>
             </label>
           </div>
           <div class="col-lg-8">
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-3">
             <img src="<?=$profileImage1?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
-<?=form_input($portfolio1)?>
+<!--<?=form_input($portfolio1)?>-->
             </label>
           </div>
           <div class="col-lg-1">
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <img src="<?=$profileImage2?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
-<?=form_input($portfolio2)?>
+<!--<?=form_input($portfolio2)?>-->
             </label>
           </div>
           <div class="col-lg-1">
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <img src="<?=$profileImage3?>" class="rounded userPortfolio" alt="portfolioImg">
             <label class="btn btn-outline-secondary uploadBtn">Upload
-<?=form_input($portfolio3)?>
+<!--<?=form_input($portfolio3)?>-->
             </label>
           </div>
         </div>
@@ -98,11 +98,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-<?=form_textarea($description)?>
+<!--<?=form_textarea($description)?>-->
             </div>
 
             <p class="addAcdResText">LINK TO MY PORTFOLIO</p>
-<?=form_input($link)?>
+<!--<?=form_input($link)?>-->
           </div>
           <div class="col-lg-5">
           </div>
