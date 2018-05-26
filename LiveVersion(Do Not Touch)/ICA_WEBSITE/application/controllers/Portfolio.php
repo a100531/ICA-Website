@@ -192,7 +192,7 @@ class Portfolio extends MY_Controller {
 	}
 	*/
 
- /*   public function editPortfolioUser_submit()
+ 	/*   public function editPortfolioUser_submit()
 	{	
 
 		if ($this->fv->run('editPortfolioUser') === FALSE)
