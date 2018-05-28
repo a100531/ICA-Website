@@ -78,6 +78,7 @@ $route['portfolioUser'] = 'portfolio/portfolioUser';
 $route['editPortfolioUser'] = 'portfolio/editPortfolioUser';
 $route['editPortfolioUser/submit'] = 'portfolio/editPortfolioUser_submit';
 $route['uploadProfileImage/submit'] = 'portfolio/uploadProfileImage';
+$route['uploadProfileInfo/submit'] = 'portfolio/uploadProfileInfo';
 
 $route['editTimetable'] = 'home/editTimetable';
 

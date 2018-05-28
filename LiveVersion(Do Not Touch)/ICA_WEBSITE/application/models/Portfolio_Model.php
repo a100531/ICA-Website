@@ -18,6 +18,21 @@ class Portfolio_Model extends CI_Model
     
         
     }
+    public function deleteProfile_Submit()
+    {
+
+        $session = $this->session->userdata;
+        $email = $session['email'];
+
+        $data = array(
+            'u_portfolio'       => 0,
+        );
+
+        $this->db->where('u_email', $email)
+                 ->update('tbl_users', $data);
+    
+        
+    }
 
     public function get_portfolios()
     {

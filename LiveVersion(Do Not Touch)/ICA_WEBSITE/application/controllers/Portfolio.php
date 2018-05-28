@@ -24,14 +24,11 @@ class Portfolio extends MY_Controller {
 		if($data != NULL)
 		{
 			$portfolio = array(
-				'portfolioImage1'   => $data['profileImage1'],
-				'portfolioImage2'   => $data['profileImage2'],
-				'portfolioImage3'   => $data['profileImage3'],
-				'portfolioImage4'   => $data['profileImage4'],
+				'portfolioImage'	=> 'portfolioUploads/'.$id.'/'.$id.'portfolioImage.png',
 				'description'		=> $data['description'],
 				'link'				=> $data['link'],
 				'name'				=> $session['name'],
-				'surname'				=> $session['surname'],
+				'surname'			=> $session['surname'],
 				);
 			
 	
@@ -315,7 +312,7 @@ class Portfolio extends MY_Controller {
 		}
 
 		$data = array(
-			'form_action'   => 'editPortfolioUser/submit',
+			'form_action'   => 'uploadProfileInfo/submit',
 			'form_image'   => 'uploadProfileImage/submit',
 			'profileImage'	=> is_dir($path) ? '/'.$path.'/'.$folder.'portfolioImage.png' : '/assets/images/no-photo.png',
 			'File'      => array(
@@ -343,7 +340,7 @@ class Portfolio extends MY_Controller {
 			'submitImage'       => array(
 				'submit'        => array(
 					'type'          => 'submit',
-					'class'			=> 'btn btn-outline-secondary okayButton form-control',
+					'class'			=> 'btn btn-outline-secondary okayButton uploadBtn',
 				)
 			),
 			'submitLinkDesc'       => array(
@@ -373,7 +370,7 @@ class Portfolio extends MY_Controller {
 			//rmdir($path);
 			//mkdir($path,0755,TRUE);
 		}else{
-			unlink($path.'/portfolioImage.png');
+			unlink($path.'/'.$folder.'portfolioImage.png');
 		}
 		
 		$id_num_profile = $folder.'portfolioImage';
@@ -397,8 +394,59 @@ class Portfolio extends MY_Controller {
 		else
 		{
 				$data = array('upload_data' => $this->upload->data());
-				redirect('editPortfolioUser');
+				$this->portfolio->editPortfolioUser_Submit();
+				redirect('portfolioUser');
 		}
+	}
+	public function uploadProfileInfo()
+	{
+		$session = $this->session->userdata;
+
+		$folder = $session['id'];
+		
+		$path = "portfolioUploads/$folder";
+		
+		if(!is_dir($path)) //if the folder already exists recreate it on submit to cater for editing portfolio too
+		{	
+			mkdir($path,0755,TRUE);
+			//delete_files($path, true);
+			//rmdir($path);
+			//mkdir($path,0755,TRUE);
+		}else
+		{
+			unlink($path.'/paths.xml');
+		}
+		$paths = array(
+			
+			# This key is optional, used to define what kind of data you're writing.
+			'root'      => 'paths',
+	
+			# The structured information goes here.
+			'data'      => array(
+				'description'			=> $this->input->post('description'),
+				'link'					=> $this->input->post('link')
+				
+			)
+		);
+		write_xml($paths,$path.'/paths.xml');
+		$this->portfolio->editPortfolioUser_Submit();
+		//print_r($savePath);
+		//die;
+		redirect('portfolioUser');
+	}
+
+	public function deleteProfile()
+	{
+		$session = $this->session->userdata;
+
+		$folder = $session['id'];
+		
+		$path = "portfolioUploads/$folder";
+
+		delete_files($path, true);
+		rmdir($path);
+		$this->portfolio->deleteProfile_Submit();
+		redirect('editPortfolioUser');
 	}
 
 // this submit function which work submits the whole form to an xml file show this to redd tomorrow 

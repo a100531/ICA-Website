@@ -33,7 +33,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <label class="btn btn-outline-secondary uploadBtn">Choose Image
 <?=form_input($File)?>
             </label>
-<?=form_button($submitImage['submit'],'Upload Profile Image')?>
+<?=form_button($submitImage['submit'],'Upload Image')?>
+          </div>
+          <div class="col-lg-8">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-3">
+
           </div>
           <div class="col-lg-8">
           </div>
