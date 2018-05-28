@@ -300,91 +300,109 @@ class Portfolio extends MY_Controller {
 
 	public function editPortfolioUser()
 	{
+		
 		$folder = $this->session->userdata('id');
 
 		$path = "portfolioUploads/$folder";
-
-		if(is_dir($path)) //if the folder already exists recreate it on submit to cater for editing portfolio too
-		{	
-			$data = array(
-				'form_action'   => 'editPortfolioUser/submit',
-				'profileImage'	=> '/'.$path.'/'.$folder.'portfolioImage.png',
-				'Files'      => array(
-					'type'          => 'file',
-					'name'          => 'images[]',
-					'multiple'      => NULL,
-					'accept-type'   => 'image/*'
-				),
-				'profileImage1'	=> '/'.$path.'/'.$folder.'portfolioImage1.png',
-				'profileImage2'	=> '/'.$path.'/'.$folder.'portfolioImage2.png',
-				'profileImage3'	=> '/'.$path.'/'.$folder.'portfolioImage3.png',
-				'link'         => array(
-					'type'          => 'text',
-					'placeholder'   => 'http://example.com',
-					'name'          => 'link',
-					'id'            => 'input-link',
-					'class'			=> 'form-control'
-				),
-				'description'      => array(
-					'name'        => 'description',
-					'id'          => 'vc_desc',
-					'rows'        => '5',
-					'cols'        => '50',
-					'class'       => 'form-control'
-				),
-				'buttons'       => array(
-					'submit'        => array(
-						'type'          => 'submit',
-						'class'			=> 'btn btn-outline-secondary okayButton',
-						'content'       => 'Ok'
-					)
-				)
-
-			);
+		if(file_exists($path.'/paths.xml'))
+		{
+			$isxml = true;
+			$xml = read_xml($path.'/paths.xml');
 		}
-		else{
-			$data = array(
-				'form_action'   => 'editPortfolioUser/submit',
-				'profileImage'	=> '/assets/images/no-photo.png',
-				'Files'      => array(
-					'type'          => 'file',
-					'name'          => 'images[]',
-					'multiple'      => NULL,
-					'accept-type'   => 'image/*'
-				),
-				'profileImage1'	=> '/assets/images/no-photo.png',
-				'profileImage2'	=> '/assets/images/no-photo.png',
-				'profileImage3'	=> '/assets/images/no-photo.png',
-				'link'         => array(
-					'type'          => 'text',
-					'placeholder'   => 'http://example.com',
-					'name'          => 'link',
-					'id'            => 'input-link',
-					'class'			=> 'form-control'
-				),
-				'description'      => array(
-					'name'        => 'description',
-					'id'          => 'vc_desc',
-					'rows'        => '5',
-					'cols'        => '50',
-					'class'       => 'form-control'
-				),
-				'buttons'       => array(
-					'submit'        => array(
-						'type'          => 'submit',
-						'class'			=> 'btn btn-outline-secondary okayButton',
-						'content'       => 'Ok'
-					)
-				)
-
-			);
+		else
+		{
+			$isxml = false;
 		}
+
+		$data = array(
+			'form_action'   => 'editPortfolioUser/submit',
+			'form_image'   => 'uploadProfileImage/submit',
+			'profileImage'	=> is_dir($path) ? '/'.$path.'/'.$folder.'portfolioImage.png' : '/assets/images/no-photo.png',
+			'File'      => array(
+				'type'          => 'file',
+				'name'          => 'portfolioImage',
+				'accept-type'   => 'image/*',
+				'class'			=> 'inputImage',
+			),
+			'link'         => array(
+				'type'          => 'text',
+				'placeholder'   => 'http://example.com',
+				'name'          => 'link',
+				'id'            => 'input-link',
+				'class'			=> 'form-control',
+				'value'			=> ($isxml) ? $xml['link'] : ''
+			),
+			'description'      => array(
+				'name'        => 'description',
+				'id'          => 'vc_desc',
+				'rows'        => '5',
+				'cols'        => '50',
+				'class'       => 'form-control',
+				'value'			=> ($isxml) ? $xml['description'] : ''
+			),
+			'submitImage'       => array(
+				'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton form-control',
+				)
+			),
+			'submitLinkDesc'       => array(
+				'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+					'content'       => 'Upload Description and Link'
+				)
+			)
+
+		);
 			
 		$this->build('editPortfolioUser',$data);
-    }
+	}
+	public function uploadProfileImage()
+	{
+		$session = $this->session->userdata;
 
+		$folder = $session['id'];
+		
+		$path = "portfolioUploads/$folder";
+		
+		if(!is_dir($path)) //if the folder already exists recreate it on submit to cater for editing portfolio too
+		{	
+			mkdir($path,0755,TRUE);
+			//delete_files($path, true);
+			//rmdir($path);
+			//mkdir($path,0755,TRUE);
+		}else{
+			unlink($path.'/portfolioImage.png');
+		}
+		
+		$id_num_profile = $folder.'portfolioImage';
+		$config['file_name']            = $id_num_profile;
+		$config['upload_path']          = $path;
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		//$config['max_width']            = 1024;
+		//$config['max_height']           = 768;
+	
+		$this->load->library('upload', $config);
 
-	public function editPortfolioUser_submit()
+		if ( ! $this->upload->do_upload('portfolioImage'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+				//var_dump ($error);
+				redirect('editPortfolioUser');
+	
+				//  $this->load->view('upload_form', $error);
+		}
+		else
+		{
+				$data = array('upload_data' => $this->upload->data());
+				redirect('editPortfolioUser');
+		}
+	}
+
+// this submit function which work submits the whole form to an xml file show this to redd tomorrow 
+/*	public function editPortfolioUser_submit()
 	{	
 
 		if ($this->fv->run('editPortfolioUser') === FALSE)
@@ -482,5 +500,5 @@ class Portfolio extends MY_Controller {
 		redirect('portfolioUser');
 		
 		
-    }
+    }*/
 }
