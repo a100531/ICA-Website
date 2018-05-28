@@ -23,49 +23,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <!--Content-->
     <section>
-      <form class="" action="index.html" method="post">
+<?php foreach ($vacancies->result_array() as $vacancy): ?>
+
         <div class="row">
           <div class="col-lg-1">
-          </div>
-          <div class="col-lg-3">
-            <div class="form-group">
-              <select class="form-control" id="exampleSelect1">
-                <option>Interactive Media</option>
-                <option>2</option>
-              </select>
-            </div>
           </div>
           <div class="col-lg-5">
-          </div>
-          <div class="col-lg-3">
-              <button type="submit" href="addVacancy.html" class="btn btn-outline-secondary addButton">ADD A NEW VACANCY</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-1">
-          </div>
-          <div class="col-lg-11">
-              <h2>Edit Portfolio</h2>
+
+              <h2><?=$vacancy['v_name']?></h2>
               <p>
-                blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-                blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-                blablablablablablablablablablablablablablablablablablablablablablablablaablablablablablablablablablablablablablablablablablabla
-                blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-                blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
+<?=$vacancy['v_description']?>
               </p>
           </div>
+          <div class="col-lg-6">
+          </div>
         </div>
         <div class="row">
-          <div class="col-lg-10">
+          <div class="col-lg-8">
           </div>
-          <div class="col-lg-1">
-              <button type="submit" class="btn btn-outline-secondary">View</button>
-          </div>
-          <div class="col-lg-1">
-            <button type="submit" class="btn btn-outline-secondary ">Delete</button>
+          <div class="col-lg-2">
+<?=anchor($vacancy['v_link'],'View',array('class' => 'btn btn-outline-secondary portfolioDeleteButton','target' => '_blank'))?>
           </div>
         </div>
-      </form>
+<?php endforeach;?>
     </section>
-      </div>
+  </div>
         <!--Footer-->

@@ -66,6 +66,7 @@ $route['addAccount'] = 'home/addAccount';
 $route['addAccount/submit'] = 'home/register_submit';
 
 $route['addVacancy'] = 'home/addVacancy';
+$route['addVacancy/submit'] = 'home/addVacancy_Submit';
 
 $route['contactUs'] = 'home/contactUs';
 
@@ -90,3 +91,4 @@ $route['studentList'] = 'home/studentList';
 $route['timetable'] = 'home/timetable';
 
 $route['vacancies'] = 'home/vacancies';
+

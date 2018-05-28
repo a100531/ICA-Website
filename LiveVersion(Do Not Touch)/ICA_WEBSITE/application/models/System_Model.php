@@ -218,6 +218,39 @@ class System_Model extends CI_Model {
 
     }
 
+    public function add_vacancy($category, $date, $expiry, $link, $name, $description)
+    {   
+        $session = $this->session->userdata; 
+
+        $data = array(
+            'v_date'            => $date,
+            'v_date_expiry'     => $expiry,
+            'v_link'            => $link,
+            'v_name'            => $name,
+            'v_description'     => $description,
+            'v_course'          => $category
+            
+        );
+
+        $this->db->insert('tbl_vacancy', $data);
+
+        return $this->db->insert_id();
+
+    }
+
+    public function all_vacancies_print()
+    {
+        $currentDate = time();
+        // these lines are preparing the
+        // query to be run.
+        $vacancies = $this->db->select('id,v_date,v_link,v_name,v_description')
+                              ->order_by('v_date', 'desc')
+                              ->where('v_date_expiry >',$currentDate)
+                              ->get('tbl_vacancy');
+
+        return $vacancies;
+    }
+
     
 
 }

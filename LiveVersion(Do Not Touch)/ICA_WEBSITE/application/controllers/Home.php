@@ -247,7 +247,64 @@ class Home extends MY_Controller {
     }
 	public function	addVacancy()
 	{
-		$this->build('addVacancy');
+		$data = array(
+			'form_action'   => 'addVacancy/submit',
+			'expiry_date'	=> array(
+					'type' 			=> "date",
+					'class' 		=> "form-control",
+					'id' 			=> "expiryDate",
+					'name' 			=> "date",
+					'placeholder' 	=> "DD/MM/YYY"
+			),
+			'vacancy_name'	=> array(
+				'type' 			=> "text",
+				'class' 		=> "form-control",
+				'id' 			=> "vacancy_Name",
+				'name' 			=> "name",
+				'placeholder' 	=> "Enter vacancy Title"
+			),
+			'vacancy_link'	=> array(
+				'type' 			=> "text",
+				'class' 		=> "form-control",
+				'id' 			=> "vacancy_Link",
+				'name' 			=> "link",
+				'placeholder' 	=> "Enter vacancy link"
+			),
+			'vacancy_description'      => array(
+				'name'        => 'description',
+				'id'          => 'vc_desc',
+				'rows'        => '5',
+				'cols'        => '50',
+				'class'       => 'form-control',
+				'value'		  => '',
+				'placeholder' => 'Enter vacancy description'
+			),
+			'dropdownCourse'=> $this->system->all_courses_dropdown(),
+			'buttons'       => array(
+                'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+                    'content'       => 'Ok'
+                )
+			)
+
+		);
+
+		$this->build('addVacancy',$data);
+	}
+	public function	addVacancy_Submit()
+	{
+		$category         = $this->input->post('category');
+		$date      		  = $this->input->post('date');
+		$link      		  = $this->input->post('link');
+		$name      		  = $this->input->post('name');
+		$description      = $this->input->post('description');
+		$expiry 	      = strtotime($this->input->post('date'));
+		
+		$this->system->add_vacancy($category, $date, $expiry, $link, $name, $description);
+
+		redirect('addVacancy');
+		
 	}
 	public function	contactUs()
 	{
@@ -321,6 +378,9 @@ class Home extends MY_Controller {
 	}
 	public function	vacancies()
 	{
-		$this->build('vacancies');
+		$data = array(
+			'vacancies' =>$this->system->all_vacancies_print()
+		);
+		$this->build('vacancies',$data);
 	}
 }

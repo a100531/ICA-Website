@@ -12,6 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <section>
     <div class="container">
             <div class="row">
+<?=form_open($form_action, array('class' => 'form-group',)); ?>
               <div class="col-lg-1">
               </div>
               <div class="col-lg-4">
@@ -20,23 +21,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-lg-6">
               </div>
             </div>
-
-
-            <form action="">
             <div class="row spacing2">
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-2 ">
                   <p class="addAcdResText">ADD COURSE</p>
-                  <select class="custom-select" name="" id="selectAddVancancy" >
-                    <option selected>Default Job</option>
-                    <option value="1">Default Job 1</option>
-                    <option value="2">Default Job 2</option>
-                    <option value="3">Default Job 3</option>
-
-                  </select>
+<?php echo form_dropdown('category',$dropdownCourse,'/',array('class' => 'form-control')); ?>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-2">
+                <p class="addAcdResText">EXPIRY DATE</p>
+<?=form_input($expiry_date);?>
+                </div>
+                <div class="col-lg-4">
+                <p class="addAcdResText">ADD LINK</p>
+<?=form_input($vacancy_link);?>
                 </div>
             </div>
 
@@ -47,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="col-lg-5 ">
                 <p class="addAcdResText">ADD THE NAME OF VACANCY</p>
-                <input type="text" class="form-control" id="Job">
+<?=form_input($vacancy_name);?>
               </div>
               <div class="col-lg-1">
               </div>
@@ -60,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="col-lg-5 ">
                 <p class="addAcdResText">DESCRIPTION</p>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+<?=form_textarea($vacancy_description)?>
               </div>
               <div class="col-lg-1">
               </div>
@@ -72,12 +70,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-lg-4">
               </div>
               <div class="col-lg-1">
-                <button type="button" class="btn btn-outline-secondary okayButton">Ok</button>
+<?=form_button($buttons['submit'])?>
               </div>
               <div class="col-lg-7">
               </div>
             </div>
-        </form>
+<?=form_close()?>
     </div>
   </section>
 
