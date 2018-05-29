@@ -12,12 +12,11 @@ class Admin_Model extends CI_Model
 
     public function get_vacancy($id)
     {
-        $data = $this->db->select('tbl_vacancy', array('id' => $id));
-
+        return $this->db->get_where('tbl_vacancy', array('id' => $id))->row_array();
         //redirect('adminVacancyList');
     }
     
-    public function edit_vacancy($category, $date, $expiry, $link, $name, $description)
+    public function edit_vacancy($id,$category, $date, $expiry, $link, $name, $description)
     {
         $data = array(
             'v_date'            => $date,
@@ -28,7 +27,7 @@ class Admin_Model extends CI_Model
             'v_course'          => $category
             
         );
-    );
+    
     
         $this->db->where('id', $id);
         $this->db->update('tbl_vacancy', $data);

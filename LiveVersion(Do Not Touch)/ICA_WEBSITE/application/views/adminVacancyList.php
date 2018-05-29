@@ -43,10 +43,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-8">
           </div>
           <div class="col-lg-2">
-<?=anchor($vacancy['v_link'],'View',array('class' => 'btn btn-outline-secondary portfolioDeleteButton','target' => '_blank'))?>
+<?=form_open($form_edit)?>
+    <input type="hidden" name="id" value="<?=$vacancy['id']?>"/>
+<?=form_button($Edit['submit'])?>
+<?=form_close()?>
 <?=form_open($form_delete)?>
     <input type="hidden" name="id" value="<?=$vacancy['id']?>"/>
-<?=form_button($buttons['submit'])?>
+<?=form_button($Delete['submit'])?>
 <?=form_close()?>
             </div>
         </div>
