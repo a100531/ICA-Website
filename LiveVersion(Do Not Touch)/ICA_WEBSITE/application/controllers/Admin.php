@@ -115,5 +115,17 @@ class Admin extends MY_Controller {
 
 		$this->build('editVacancyForm',$data);
         
-    }
+	}
+	
+	public function addAcademicResourceSubmit()
+	{
+		$title = $this->input->post('title');
+		$link = $this->input->post('link');
+
+		$imagename = strtolower(urlencode($title));
+		echo $imagename;
+
+		$content = $title .PHP_EOL. $link .PHP_EOL;
+		write_file("txt/resources.txt", $content, 'a+');
+	}
 }
