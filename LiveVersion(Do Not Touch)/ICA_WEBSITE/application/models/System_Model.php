@@ -220,7 +220,6 @@ class System_Model extends CI_Model {
 
     public function add_vacancy($category, $date, $expiry, $link, $name, $description)
     {   
-        $session = $this->session->userdata; 
 
         $data = array(
             'v_date'            => $date,

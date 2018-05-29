@@ -92,3 +92,5 @@ $route['timetable'] = 'home/timetable';
 
 $route['vacancies'] = 'home/vacancies';
 
+$route['adminVacancyList'] = 'admin/adminVacancyList';
+
