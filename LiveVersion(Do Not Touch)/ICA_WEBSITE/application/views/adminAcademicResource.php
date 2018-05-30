@@ -38,6 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a href="<?=$link['link']?>">
       <img src="<?=$link['image']?>" class="rounded portfolioImg" alt="portfolioImg">
     </a>
+<?=form_open($form_delete)?>
+    <input type="hidden" name="id" value="<?=$vacancy['id']?>"/>
+<?=form_button($Delete['submit'])?>
+<?=form_close()?>
     </div>
     <div class="col-lg-2">
     </div>

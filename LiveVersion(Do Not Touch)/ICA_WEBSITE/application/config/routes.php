@@ -61,6 +61,9 @@ $route['logout'] = 'home/logout';
 $route['academicResource'] = 'home/academicResource';
 
 $route['addAcademicResource'] = 'home/addAcademicResource';
+$route['addAcademicResourceSubmit/submit'] = 'admin/addAcademicResourceSubmit';
+$route['adminAcademicResource'] = 'admin/adminAcademicResource';
+
 
 $route['addAccount'] = 'home/addAccount';
 $route['addAccount/submit'] = 'home/register_submit';
@@ -95,5 +98,7 @@ $route['vacancies'] = 'home/vacancies';
 $route['adminVacancyList'] = 'admin/adminVacancyList';
 $route['editVacancyForm'] = 'admin/editVacancyForm';
 $route['editVacancySubmit/submit'] = 'admin/editVacancySubmit';
+
+
 
 

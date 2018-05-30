@@ -140,12 +140,69 @@ class Home extends MY_Controller {
 
 	public function academicResource()
 	{
-		$this->build('academicResource');
+		// text file links
+		$file = fopen('txt/resources.txt', 'r');
+		$links = array();
+
+		while ($line = fgets($file))
+		{
+			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
+			if (count($img) > 0) $img = $img[0];
+			else $img = 'assets/images/no-photo.png';
+
+			$links[] = array(
+				'image' => $img,
+				'title' => $line,
+				'link' => fgets($file),
+			);
+
+		}
+		//var_dump($links);
+		//die;
+		$data = array(
+			'links' => $links
+		);
+		
+		
+		$this->build('academicResource',$data);
 	}
 	
 	public function addAcademicResource()
 	{
-		$this->build('addAcademicResource');
+
+		$data = array(
+			'form_action'   => 'addAcademicResourceSubmit/submit',
+			'title'         => array(
+				'type'          => 'text',
+				'placeholder'   => 'Title',
+				'name'          => 'title',
+				'id'            => 'input-title',
+				'class'			=> 'form-control'
+			),
+			'file'      => array(
+				'type'          => 'file',
+				'name'          => 'resourceImage',
+				'accept-type'   => 'image/*',
+				'class'			=> 'btn btn-outline-secondary'
+			),
+			'link'         => array(
+				'type'          => 'text',
+				'placeholder'   => 'http://example.com',
+				'name'          => 'link',
+				'id'            => 'input-link',
+				'class'			=> 'form-control'
+			),
+			'buttons'       => array(
+				'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+					'content'       => 'Submit'
+				)
+			)
+
+		);
+
+		$this->build('addAcademicResource',$data);
 	}
 	public function	addAccount()
 	{
