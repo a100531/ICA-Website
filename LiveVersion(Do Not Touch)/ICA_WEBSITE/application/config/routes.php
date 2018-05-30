@@ -62,6 +62,7 @@ $route['academicResource'] = 'home/academicResource';
 
 $route['addAcademicResource'] = 'home/addAcademicResource';
 $route['addAcademicResourceSubmit/submit'] = 'admin/addAcademicResourceSubmit';
+$route['adminAcademicResource'] = 'admin/adminAcademicResource';
 
 
 $route['addAccount'] = 'home/addAccount';

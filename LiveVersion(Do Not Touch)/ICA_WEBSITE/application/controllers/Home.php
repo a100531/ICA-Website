@@ -146,9 +146,9 @@ class Home extends MY_Controller {
 
 		while ($line = fgets($file))
 		{
-			$img = glob("resources/" . strtolower(urlencode(trim($line))) . ".*");
+			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
 			if (count($img) > 0) $img = $img[0];
-			else $img = 'default.png';
+			else $img = 'assets/images/no-photo.png';
 
 			$links[] = array(
 				'image' => $img,
@@ -157,10 +157,14 @@ class Home extends MY_Controller {
 			);
 
 		}
-		var_dump($links);
+		//var_dump($links);
+		//die;
+		$data = array(
+			'links' => $links
+		);
 		
-		die;
-		$this->build('academicResource');
+		
+		$this->build('academicResource',$data);
 	}
 	
 	public function addAcademicResource()
@@ -170,14 +174,14 @@ class Home extends MY_Controller {
 			'form_action'   => 'addAcademicResourceSubmit/submit',
 			'title'         => array(
 				'type'          => 'text',
-				'placeholder'   => 'TITLE',
+				'placeholder'   => 'Title',
 				'name'          => 'title',
 				'id'            => 'input-title',
 				'class'			=> 'form-control'
 			),
 			'file'      => array(
 				'type'          => 'file',
-				'name'          => 'portfolioImage',
+				'name'          => 'resourceImage',
 				'accept-type'   => 'image/*',
 				'class'			=> 'btn btn-outline-secondary'
 			),

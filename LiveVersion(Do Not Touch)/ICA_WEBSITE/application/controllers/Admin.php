@@ -123,9 +123,92 @@ class Admin extends MY_Controller {
 		$link = $this->input->post('link');
 
 		$imagename = strtolower(urlencode($title));
-		echo $imagename;
+		//echo $imagename;
+
+		$config['file_name']            = $imagename;
+		$config['upload_path']          = 'txt';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		//$config['max_width']            = 1024;
+		//$config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('resourceImage'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+				var_dump ($error);
+
+			  //  $this->load->view('upload_form', $error);
+		}
+		else
+		{
+				$data = array('upload_data' => $this->upload->data());
+
+				echo 'File written!';
+
+				//$this->load->view('upload_success', $data);
+		}
 
 		$content = $title .PHP_EOL. $link .PHP_EOL;
 		write_file("txt/resources.txt", $content, 'a+');
+	}
+
+	function exampleDelete()
+	{
+		$content = '';
+		while ($line = fgets($file))
+		{
+			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
+
+			if ($line = $theOneIWantToDelete)
+			{
+				fgets($file); // to move one more line down
+				if (count($img) > 0) unlink($img[0]);
+			}
+			else
+			{
+				$content .= $line . PHP_EOL . fgets($file) . PHP_EOL;
+			}
+		}
+		//link the file path and the content to write the txt file
+		//add the formaction to the form in adminResourceList
+		write_file($path, $content);
+
+	}
+
+	public function adminAcademicResource()
+	{
+		// text file links
+		$file = fopen('txt/resources.txt', 'r');
+		$links = array();
+		while ($line = fgets($file))
+		{
+			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
+			if (count($img) > 0) $img = $img[0];
+			else $img = 'assets/images/no-photo.png';
+
+			$links[] = array(
+				'image' => $img,
+				'title' => $line,
+				'link' => fgets($file),
+			);
+
+		}
+		//var_dump($links);
+		//die;
+		$data = array(
+			'links' => $links,
+			'form_delete'   => 'admin/delete_vacancy',
+            'Delete'       => array(
+                'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary portfolioDeleteButton',
+                    'content'       => 'Delete'
+                )
+            ),
+		);
+
+		$this->build('adminAcademicResource',$data);
 	}
 }

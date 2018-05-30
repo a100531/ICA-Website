@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="row">
                 <div class="col-lg-1">
                 </div>
-<?=form_open($form_action)?>
+<?=form_open_multipart($form_action)?>
                 <div class="col-lg-4">
                   <h2>Add Academic Resources</h2>
                 </div>
