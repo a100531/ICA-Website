@@ -152,17 +152,23 @@ class Admin extends MY_Controller {
 
 		$content = $title .PHP_EOL. $link .PHP_EOL;
 		write_file("txt/resources.txt", $content, 'a+');
+		redirect('adminAcademicResource');
+
 	}
 
-	function exampleDelete()
+	function resourceDelete()
 	{
+
+		//$theOneIWantToDelete = $this->input->post('title');
+		//var_dump($theOneIWantToDelete);
+		//die;
 		$content = '';
 		while ($line = fgets($file))
 		{
 			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
 
-			if ($line = $theOneIWantToDelete)
-			{
+			if ($line === $this->input->post('title'))
+			{	
 				fgets($file); // to move one more line down
 				if (count($img) > 0) unlink($img[0]);
 			}
@@ -173,7 +179,8 @@ class Admin extends MY_Controller {
 		}
 		//link the file path and the content to write the txt file
 		//add the formaction to the form in adminResourceList
-		write_file($path, $content);
+		write_file("txt/resources.txt", $content);
+		redirect('adminAcademicResource');
 
 	}
 
@@ -199,14 +206,15 @@ class Admin extends MY_Controller {
 		//die;
 		$data = array(
 			'links' => $links,
-			'form_delete'   => 'admin/delete_vacancy',
-            'Delete'       => array(
+			'resource_delete'   => 'resourceDelete',
+			'Delete'       => array(
                 'submit'        => array(
 					'type'          => 'submit',
 					'class'			=> 'btn btn-outline-secondary portfolioDeleteButton',
                     'content'       => 'Delete'
                 )
-            ),
+			),
+			
 		);
 
 		$this->build('adminAcademicResource',$data);
