@@ -13,6 +13,7 @@
 </ul>
 
 <p><?php echo anchor('upload', 'Upload Another File!'); ?></p>
+ <a href="">
 
 </body>
 </html>
