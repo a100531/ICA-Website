@@ -162,24 +162,28 @@ class Admin extends MY_Controller {
 		//$theOneIWantToDelete = $this->input->post('title');
 		//var_dump($theOneIWantToDelete);
 		//die;
-		$content = '';
-		while ($line = fgets($file))
-		{
-			$img = glob("txt/" . strtolower(urlencode(trim($line))) . ".*");
+		$file = fopen('txt/resources.txt', 'r');
+		$content = array();
 
-			if ($line === $this->input->post('title'))
-			{	
-				fgets($file); // to move one more line down
+		while ($title = fgets($file))
+		{
+			$link = fgets($file);
+			if ($title === $this->input->post('title'))
+			{
+				echo $title;
+				$img = glob("txt/" . strtolower(urlencode(trim($title))) . ".*");
 				if (count($img) > 0) unlink($img[0]);
 			}
 			else
 			{
-				$content .= $line . PHP_EOL . fgets($file) . PHP_EOL;
+				$content[] = $title;
+				$content[] = $link;
 			}
 		}
-		//link the file path and the content to write the txt file
-		//add the formaction to the form in adminResourceList
-		write_file("txt/resources.txt", $content);
+
+		fclose($file);
+		
+		write_file("txt/resources.txt", implode(PHP_EOL, $content));
 		redirect('adminAcademicResource');
 
 	}
@@ -251,7 +255,6 @@ class Admin extends MY_Controller {
 			mkdir($path,0755,TRUE);
 			delete_files($path, true);
 			rmdir($path);
-			//mkdir($path,0755,TRUE);
 		}
 
 		redirect('admin');

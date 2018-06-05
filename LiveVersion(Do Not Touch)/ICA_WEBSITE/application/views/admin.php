@@ -31,7 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?=form_open($form_action)?>
     <input type="hidden" name="id" value="<?=$user['id']?>"/>
 <?=form_button($delete['submit'])?>
-<?=form_close()?></td>
+<?=form_close()?>
+        </td>
     </tr>
     
 
