@@ -100,6 +100,8 @@ $route['adminVacancyList'] = 'admin/adminVacancyList';
 $route['editVacancyForm'] = 'admin/editVacancyForm';
 $route['editVacancySubmit/submit'] = 'admin/editVacancySubmit';
 
+$route['admin'] = 'admin/admin';
+$route['userDelete'] = 'admin/accountDelete';
 
 
 

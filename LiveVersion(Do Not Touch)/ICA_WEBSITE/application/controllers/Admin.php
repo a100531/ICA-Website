@@ -219,4 +219,41 @@ class Admin extends MY_Controller {
 
 		$this->build('adminAcademicResource',$data);
 	}
+
+	public function admin()
+	{
+
+		$data = array(
+			'form_action'  => 'userDelete',
+			'users' 	   => $this->admin->retrieveAllUsers(),
+			'delete'       => array(
+                'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary portfolioDeleteButton',
+                    'content'       => 'Delete'
+                )
+            ),
+
+		);
+
+		$this->build('admin',$data);
+	}
+	public function accountDelete()
+	{
+		$id = $this->input->post('id');
+
+		$this->admin->deleteAccount($id);
+
+		$path = "portfolioUploads/$id";
+		
+		if(is_dir($path)) //if the folder already exists recreate it on submit to cater for editing portfolio too
+		{	
+			mkdir($path,0755,TRUE);
+			delete_files($path, true);
+			rmdir($path);
+			//mkdir($path,0755,TRUE);
+		}
+
+		redirect('admin');
+	}
 }
