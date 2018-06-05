@@ -15,7 +15,8 @@
     <input type="submit" value="upload" />
 
     </form>
-    <iframe src = "/ViewerJS/#/pdfs\TimeTablesIct.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+    
+
 
 
 </body>

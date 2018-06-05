@@ -12,8 +12,7 @@
 <?php endforeach; ?>
 </ul>
 
-<p><?php echo anchor('upload', 'Upload Another File!'); ?></p>
- <a href="">
+<iframe src = "/ViewerJS/#/uploads/<?=$upload_data['file_name']?>" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
 
 </body>
 </html>
