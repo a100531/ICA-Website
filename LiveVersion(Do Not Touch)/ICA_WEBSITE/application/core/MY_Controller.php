@@ -36,22 +36,95 @@ class MY_Controller extends CI_Controller {
 	{
         // basic page
         $nav = [];
-        $nav['STUDENT PORTFOLIO'] = 'portfolio';
-
-            $dropdown = [];
-            $dropdown['RESOURCES'] = 'academicResource';
-            $dropdown['TIMETABLES'] = 'timetable';    
-        $nav['STUDENT LINKS'] = $dropdown;
-
-        $nav['VACANCIES'] = 'vacancies';
-        $nav['CONTACTUS'] = 'contactUs';
 
         if($this->check_login())
         {
+            $session = $this->session->userdata;
+            $role = $this->session->userdata('role');
+            if($role === "Admin")
+            {
+                $nav['STUDENT PORTFOLIO'] = 'portfolio';
+                
+                    $dropdown = [];
+                    $dropdown['RESOURCES'] = 'academicResource';
+                    $dropdown['ADD RESOURCE'] = 'adminAcademicResource';
+                    $dropdown['DELETE RESOURCE'] = 'resourceDelete';
+                    $dropdown['TIMETABLES'] = 'timetable';
+                    $dropdown['ADD TIMETABLE'] = 'editTimetable';
+                    $dropdown['ACCOUNTS'] = 'admin';
+                    $dropdown['ADD ACCOUNT'] = 'addAccount';
+                    $dropdown['VACANCY LIST'] = 'adminVacancyList';
+                    $dropdown['ADD VACANCY'] = 'addVacancy';
+                         
+                $nav['ADMIN LINKS'] = $dropdown;
+        
+                $nav['VACANCIES'] = 'vacancies';
+                $nav['CONTACTUS'] = 'contactUs';
+     
+            }
+            else if($role === "Staff")
+            {
+                $nav['STUDENT PORTFOLIO'] = 'portfolio';
+                
+                    $dropdown = [];
+                    $dropdown['RESOURCES'] = 'academicResource';
+                    $dropdown['ADD RESOURCE'] = 'adminAcademicResource';
+                    $dropdown['DELETE RESOURCE'] = 'resourceDelete';
+                    $dropdown['TIMETABLES'] = 'timetable';
+                    $dropdown['ADD TIMETABLE'] = 'editTimetable';
+                    $dropdown['VACANCY LIST'] = 'adminVacancyList';
+                    $dropdown['ADD VACANCY'] = 'addVacancy';
+                    
+                         
+                $nav['STAFF LINKS'] = $dropdown;
+        
+                $nav['VACANCIES'] = 'vacancies';
+                $nav['CONTACTUS'] = 'contactUs';
+            }
+            else if($role === "Lecturer")
+            {
+                $nav['STUDENT PORTFOLIO'] = 'portfolio';
+                
+                    $dropdown = [];
+                    $dropdown['RESOURCES'] = 'academicResource';
+                    $dropdown['TIMETABLES'] = 'timetable';
+                    $dropdown['ADD VACANCY'] = 'addVacancy';
+                    $dropdown['SICK LEAVE'] = 'sickLeave';
+                         
+                $nav['LECTURER LINKS'] = $dropdown;
+        
+                $nav['VACANCIES'] = 'vacancies';
+                $nav['CONTACTUS'] = 'contactUs';
+            }
+            else if($role === "Student")
+            {
+                $nav['STUDENT PORTFOLIO'] = 'portfolio';
+                
+                
+                    $dropdown = [];
+                    $dropdown['RESOURCES'] = 'academicResource';
+                    $dropdown['TIMETABLES'] = 'timetable';
+                          
+                $nav['STUDENT LINKS'] = $dropdown;
+        
+                $nav['VACANCIES'] = 'vacancies';
+                $nav['CONTACTUS'] = 'contactUs';
+                $nav[strtoupper($session['name']).' '.strtoupper($session['surname'])] = 'portfolioUser';
+            }
             $nav['LOG OUT'] = 'logout';
         }
         else
         { 
+            $nav['STUDENT PORTFOLIO'] = 'portfolio';
+            
+                $dropdown = [];
+                $dropdown['RESOURCES'] = 'academicResource';
+                $dropdown['TIMETABLES'] = 'timetable';    
+            $nav['STUDENT LINKS'] = $dropdown;
+    
+            $nav['VACANCIES'] = 'vacancies';
+            $nav['CONTACTUS'] = 'contactUs';
+
             $nav['LOG IN'] = 'login'; 
         }
         
