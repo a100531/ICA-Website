@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2018 at 10:46 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: Jun 07, 2018 at 12:23 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,6 +60,13 @@ CREATE TABLE `tbl_login_info` (
   `u_persistence` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tbl_login_info`
+--
+
+INSERT INTO `tbl_login_info` (`user_id`, `u_login_time`, `u_persistence`) VALUES
+(13, 1528323005, '5b6341ee0e244459845af6b7e2d4e5c3');
+
 -- --------------------------------------------------------
 
 --
@@ -102,7 +109,8 @@ CREATE TABLE `tbl_sick` (
 INSERT INTO `tbl_sick` (`id`, `s_name`, `s_surname`, `s_dateLong`, `s_date`) VALUES
 (1, 'Joana', 'Newmelon', '2018-05-31', 1527717600),
 (3, 'Daniel', 'Cassar', '2018-07-17', 1531778400),
-(4, 'Yannick', 'Farrugia', '2018-07-19', 1531951200);
+(4, 'Yannick', 'Farrugia', '2018-07-19', 1531951200),
+(5, 'Daniel', 'Cassar', '2018-06-29', 1530223200);
 
 -- --------------------------------------------------------
 
@@ -250,7 +258,7 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT for table `tbl_sick`
 --
 ALTER TABLE `tbl_sick`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
