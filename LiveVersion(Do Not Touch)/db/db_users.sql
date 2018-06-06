@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2018 at 09:10 PM
+-- Generation Time: Jun 06, 2018 at 10:46 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -59,25 +59,6 @@ CREATE TABLE `tbl_login_info` (
   `u_login_time` int(11) UNSIGNED NOT NULL,
   `u_persistence` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tbl_login_info`
---
-
-INSERT INTO `tbl_login_info` (`user_id`, `u_login_time`, `u_persistence`) VALUES
-(4, 1527072746, 'd0ec50a619375eaddac8063a52f653ef'),
-(4, 1527072775, '5da670d6dfe7e388d604b468889c3227'),
-(5, 1527170970, '946e8a49b53bc550ad3580f5478bcbaf'),
-(5, 1527174855, 'c703bdc6b3062a87e6980aa21f0c6335'),
-(5, 1527176378, '4d27671b460c5c7d1ce9458415bd222a'),
-(5, 1527180110, '49cac9e437b4f06dd8eb82201329c20c'),
-(13, 1527189726, '46a8b33873d610eabee693ed8424b46f'),
-(11, 1527196084, '61cfe37b386a58f23724a30b8e163ec7'),
-(11, 1527250677, '31b7bacd4c5a02b4f2de5c58d8532356'),
-(6, 1527250851, 'ee2f18ff1d3d6995fdfea67ae0105aa0'),
-(6, 1527253016, '535d81af520100df92c4dda4e7f04b85'),
-(6, 1527257989, 'fd9a2f867db93ed81624da657d52888a'),
-(6, 1527262175, '992a5b550de2d492e1989e581bb78956');
 
 -- --------------------------------------------------------
 
@@ -143,17 +124,13 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `u_email`, `u_password`, `u_salt`, `u_portfolio`, `role_id`) VALUES
-(1, 'cassardan0@gmail.com', '$2y$10$VHQNQCq89D0cei5nAYMOg.43K..SFtJ7CmII9q7CVJqtEQVj3HCHa', '95db6770f1c35046', 0, 2),
-(2, 'camilleri@gmail.com', '$2y$10$GUfLB2kuDLgqxX.dfBS1meic1rX1dKJdjX6IINqLt2CFqerBtngwu', '08dadc51007605f0', 0, 2),
 (4, 'cassar628@hotmail.com', '$2y$10$Zzdwy2g89HbUuw2o1tqR3ui18U1YD.5xJ7ntvhUuCG86S.z0PL41m', '6f1f5d16e6e61ecb', 0, 2),
 (5, 'yannick@gmail.com', '$2y$10$htd.mYLo9gK.yUXhysivT.8FXf7OTCNHCjV1uNuP4zCwm2/9qka7q', '85d9acd273c7ea1d', 0, 1),
 (6, 'joana@gmail.com', '$2y$10$9e8t4rIem6oxOUsOpmBZZ.Am8KR70WHbsaqe3OB9e6tHrONABx7M.', '7f967de94cf6cf24', 1, 1),
 (7, 'cassar@gmail.com', '$2y$10$kU3yzHlK5bE4cUBCe/rE4O7B8hGXu5iEQGd0b3x/5rDxQRpEKEWHu', 'b9903563c51789cf', 0, 1),
-(8, 'darren@gmail.com', '$2y$10$uFOaF3E1KAy7DmorZjPDmuKFg0iIVBybv.cCgrLWS1fpfUs7pD7TO', '2506eed83a03ab4c', 0, 3),
 (9, 'lorella@gmail.com', '$2y$10$dcAgKC4ipU7uN5PDLXL9N.g/IvyqaAXgaf54K48VP/gTx8DjIb94m', '208c7312e71d4cec', 0, 4),
 (10, 'redd@gmail.com', '$2y$10$lneNyq7Ezp8CQCGBgABpS.Vqgvrc6gxLg7g42FKH3z909nuLKl.Na', '8d40296818a128c3', 0, 4),
-(11, 'daniel@gmail.com', '$2y$10$T1Rh0j1qetXxE6TioeAvH.VIBTE8a7Ezx8pb9H1IWQ6Kmee8xMbg6', 'cd9f312bd0ad1a9a', 1, 4),
-(12, 'francesco@gmail.com', '$2y$10$YosyX6xabbdeXBoDe3ScduvJLS.hJ2FFYHNqP0EyfTaSzyt8U7GXa', '7355cadb2ce7d7bb', 1, 3),
+(12, 'francesco@gmail.com', '$2y$10$YosyX6xabbdeXBoDe3ScduvJLS.hJ2FFYHNqP0EyfTaSzyt8U7GXa', '7355cadb2ce7d7bb', 0, 3),
 (13, 'luke@gmail.com', '$2y$10$9IljwyUAvGXsJwmCxzg9euQnUoUbp9xeoE0tJZr4kZYio6ERPbO1u', '3ae085a2cb0d71c2', 1, 3);
 
 -- --------------------------------------------------------
@@ -174,18 +151,37 @@ CREATE TABLE `tbl_user_details` (
 --
 
 INSERT INTO `tbl_user_details` (`user_id`, `u_name`, `u_surname`, `u_creation`) VALUES
-(1, 'Daniel', 'Cassar', 1524833188),
-(2, 'Darren', 'Camilleri', 1526843905),
 (4, 'Daniel', 'Cassar', 1526845423),
 (5, 'Yannick', 'Farrugia', 1527017255),
 (6, 'Joana', 'Newmelon', 1527021990),
 (7, 'Daniel', 'Cassar', 1527022083),
-(8, 'Darren', 'Camilleri', 1527022170),
 (9, 'Lorella', 'Aquilina', 1527075057),
 (10, 'Redd', 'Caruana', 1527075076),
-(11, 'Daniel', 'Cassar', 1527114313),
 (12, 'Francesco', 'Theuma', 1527180266),
 (13, 'Luke', 'Parnis', 1527180622);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_vacancy`
+--
+
+CREATE TABLE `tbl_vacancy` (
+  `id` int(11) NOT NULL,
+  `v_date` date NOT NULL,
+  `v_date_expiry` int(100) NOT NULL,
+  `v_link` varchar(1000) NOT NULL,
+  `v_name` varchar(1000) NOT NULL,
+  `v_description` varchar(1000) NOT NULL,
+  `v_course` tinyint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_vacancy`
+--
+
+INSERT INTO `tbl_vacancy` (`id`, `v_date`, `v_date_expiry`, `v_link`, `v_name`, `v_description`, `v_course`) VALUES
+(5, '2018-05-31', 1527717600, 'http://www.youtube.com', 'SpaceJam', 'I like big spaces', 8);
 
 --
 -- Indexes for dumped tables
@@ -229,6 +225,12 @@ ALTER TABLE `tbl_user_details`
   ADD KEY `fk_tbl_user_details_tbl_users_idx` (`user_id`);
 
 --
+-- Indexes for table `tbl_vacancy`
+--
+ALTER TABLE `tbl_vacancy`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -255,6 +257,12 @@ ALTER TABLE `tbl_sick`
 --
 ALTER TABLE `tbl_users`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `tbl_vacancy`
+--
+ALTER TABLE `tbl_vacancy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
