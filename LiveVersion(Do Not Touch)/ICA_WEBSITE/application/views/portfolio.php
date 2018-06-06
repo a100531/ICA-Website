@@ -22,20 +22,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!--Content-->
   <section>
+<?php foreach ($portfolios->result_array() as $portfolio): ?>
     <div class="row">
+     
+
       <div class="col-lg-1">
       </div>
-<?php foreach ($portfolios->result_array() as $portfolio): ?>
 <?php $data = read_xml('portfolioUploads/'.$portfolio['id'].'/paths.xml') ?>
       <div class="col-lg-3">
-        <img src="<?=$data['profileImage1']?>" class="rounded portfolioImg" alt="portfolioImg">
+        <img src="<?='portfolioUploads/'.$portfolio['id'].'/'.$portfolio['id'].'portfolioImage.png'?>" class="rounded portfolioImg" alt="portfolioImg">
         <p class="portfoliotext"><?=$portfolio['u_email']?></p>
       </div>
-      <div class="col-lg-1">
+      <div class="col-lg-8">
+        <p class="portfolioDescription"><?=$data['description']?></p>
+        <a href="<?=$data['link']?>" class="btn btn-outline-secondary portfolioDeleteButton">Portfolio</a>
       </div>
-<?php endforeach;?>     
+     
 
     </div>
-
+    <div class="spacing"></div>
+    <hr>
+    
+<?php endforeach;?>
   </section>
 </div>
