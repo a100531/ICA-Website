@@ -259,4 +259,55 @@ class Admin extends MY_Controller {
 
 		redirect('admin');
 	}
+
+	public function	editTimetable()
+	{
+		$data = array(
+			'form_action' => 'submitTimetable',
+			'timetable'      => array(
+				'type'          => 'file',
+				'name'          => 'timetable',
+				'class'			=> 'inputImage',
+			),
+			'button'       => array(
+				'submit'        => array(
+					'type'          => 'submit',
+					'class'			=> 'btn btn-outline-secondary okayButton',
+					'content'       => 'Upload Timetable'
+				)
+			)
+
+		);
+		$this->build('editTimetable',$data);
+	}
+
+	public function submitTimetable()
+	{
+		if(file_exists("timetables/timetables.pdf"))
+		{
+			unlink("timetables/timetables.pdf");
+		}
+		
+		$config['file_name']          	= 'timetables';
+		$config['upload_path']          = './timetables/';
+		$config['allowed_types']        = 'pdf';
+		$config['max_width']            = 1024;
+		$config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('timetable'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+
+				//$this->load->view('upload_form', $error);
+		}
+		else
+		{
+				$data = array('upload_data' => $this->upload->data());
+
+				//$this->load->view('upload_success', $data);
+        }
+		redirect('timetable');
+	}
 }

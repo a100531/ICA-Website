@@ -19,60 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="spacing6"></div>
     <!--Content-->
     <section>
+    <div class="spacing"></div>
       <div class="row">
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-11">
-          <a id="editBtnStyle" href="editTimetable.html">
-            <button type="submit" class="btn btn-outline-secondary editbutton">EDIT TIMETABLE</button>
-          </a>
-        </div>
+      <div class="col-lg-1">
+          
       </div>
-      <div class="spacing">
-
+        <div class="col-lg-10">
+          <iframe src="/ViewerJS/#/timetables/timetables.pdf" frameborder="0" allowfullscreen webkitallowfullscreen></iframe>
+        </div>
+      <div class="col-lg-1">
+        
       </div>
-      <div class="row">
-        <div class="col-lg-1">
-
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-1">
-
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3">
-          <p>Interactive Media - Year 1</p>
-          <img src="/assets/images/no-photo.png" class="rounded timetableimg" alt="portfolioImg">
-        </div>
       </div>
     </section>
       </div>

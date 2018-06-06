@@ -367,10 +367,7 @@ class Home extends MY_Controller {
 	{
 		$this->build('contactUs');
 	}
-	public function	editTimetable()
-	{
-		$this->build('editTimetable');
-	}
+	
 	public function	sickLeave()
 	{
 		

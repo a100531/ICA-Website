@@ -85,7 +85,7 @@ $route['editPortfolioUser/submit'] = 'portfolio/editPortfolioUser_submit';
 $route['uploadProfileImage/submit'] = 'portfolio/uploadProfileImage';
 $route['uploadProfileInfo/submit'] = 'portfolio/uploadProfileInfo';
 
-$route['editTimetable'] = 'home/editTimetable';
+$route['editTimetable'] = 'admin/editTimetable';
 
 $route['sickLeave'] = 'home/sickLeave';
 $route['sickLeave/submit'] = 'home/sickLeave_submit';
@@ -102,6 +102,7 @@ $route['editVacancySubmit/submit'] = 'admin/editVacancySubmit';
 
 $route['admin'] = 'admin/admin';
 $route['userDelete'] = 'admin/accountDelete';
+$route['submitTimetable'] = 'admin/submitTimetable';
 
 
 
